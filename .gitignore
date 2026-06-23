@@ -1,0 +1,13 @@
+.DS_Store
+tasks-wip.todo
+notes.md
+node_modules
+.vscode/vscode-kanban.json
+
+# related to bundling
+all-game-assets.zip
+/dist
+.vercel
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
