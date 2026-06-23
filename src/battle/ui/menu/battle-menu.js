@@ -24,6 +24,13 @@ const PLAYER_INPUT_CURSOR_POS = Object.freeze({
   y: 488,
 });
 
+const BATTLE_MENU_LABELS = Object.freeze({
+  [BATTLE_MENU_OPTIONS.FIGHT]: 'ARGUMENTAR',
+  [BATTLE_MENU_OPTIONS.SWITCH]: 'CRIATURA',
+  [BATTLE_MENU_OPTIONS.ITEM]: 'EVIDENCIA',
+  [BATTLE_MENU_OPTIONS.FLEE]: 'RETIRAR',
+});
+
 export class BattleMenu {
   /** @type {Phaser.Scene} */
   #scene;
@@ -165,7 +172,7 @@ export class BattleMenu {
    */
   showMainBattleMenu() {
     this.#activeBattleMenu = ACTIVE_BATTLE_MENU.BATTLE_MAIN;
-    this.#battleTextGameObjectLine1.setText('what should');
+    this.#battleTextGameObjectLine1.setText('¿Qué debería');
     this.#mainBattleMenuPhaserContainerGameObject.setAlpha(1);
     this.#battleTextGameObjectLine1.setAlpha(1);
     this.#battleTextGameObjectLine2.setAlpha(1);
@@ -360,7 +367,7 @@ export class BattleMenu {
    * @returns {void}
    */
   #createMainBattleMenu() {
-    this.#battleTextGameObjectLine1 = this.#scene.add.text(20, 468, 'what should', {
+    this.#battleTextGameObjectLine1 = this.#scene.add.text(20, 468, '¿Qué debería', {
       ...BATTLE_UI_TEXT_STYLE,
       ...{
         wordWrap: {
@@ -371,7 +378,7 @@ export class BattleMenu {
     this.#battleTextGameObjectLine2 = this.#scene.add.text(
       20,
       512,
-      `${this.#activePlayerMonster.name} do next?`,
+      `hacer ${this.#activePlayerMonster.name}?`,
       BATTLE_UI_TEXT_STYLE
     );
 
@@ -382,10 +389,10 @@ export class BattleMenu {
 
     this.#mainBattleMenuPhaserContainerGameObject = this.#scene.add.container(520, 448, [
       this.#createMainInfoSubPane(),
-      this.#scene.add.text(55, 22, BATTLE_MENU_OPTIONS.FIGHT, BATTLE_UI_TEXT_STYLE),
-      this.#scene.add.text(240, 22, BATTLE_MENU_OPTIONS.SWITCH, BATTLE_UI_TEXT_STYLE),
-      this.#scene.add.text(55, 70, BATTLE_MENU_OPTIONS.ITEM, BATTLE_UI_TEXT_STYLE),
-      this.#scene.add.text(240, 70, BATTLE_MENU_OPTIONS.FLEE, BATTLE_UI_TEXT_STYLE),
+      this.#scene.add.text(55, 22, BATTLE_MENU_LABELS[BATTLE_MENU_OPTIONS.FIGHT], BATTLE_UI_TEXT_STYLE),
+      this.#scene.add.text(240, 22, BATTLE_MENU_LABELS[BATTLE_MENU_OPTIONS.SWITCH], BATTLE_UI_TEXT_STYLE),
+      this.#scene.add.text(55, 70, BATTLE_MENU_LABELS[BATTLE_MENU_OPTIONS.ITEM], BATTLE_UI_TEXT_STYLE),
+      this.#scene.add.text(240, 70, BATTLE_MENU_LABELS[BATTLE_MENU_OPTIONS.FLEE], BATTLE_UI_TEXT_STYLE),
       this.#mainBattleMenuCursorPhaserImageGameObject,
     ]);
 
@@ -714,7 +721,7 @@ export class BattleMenu {
 
     if (this.#selectedBattleMenuOption === BATTLE_MENU_OPTIONS.FLEE) {
       if (this.#isTrainerBattle) {
-        this.updateInfoPaneMessagesAndWaitForInput(["You can't flee at this time!"], () => {
+        this.updateInfoPaneMessagesAndWaitForInput(['No puedes retirarte de esta audiencia.'], () => {
           this.showMainBattleMenu();
         });
         return;
@@ -797,6 +804,6 @@ export class BattleMenu {
 
     this.#wasItemUsed = true;
     this.#usedItem = data.item;
-    this.updateInfoPaneMessagesAndWaitForInput([`You used the following item: ${data.item.name}`]);
+    this.updateInfoPaneMessagesAndWaitForInput([`Usaste la evidencia: ${data.item.name}`]);
   }
 }

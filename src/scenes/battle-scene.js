@@ -299,7 +299,7 @@ export class BattleScene extends BaseScene {
     }
 
     this.#battleMenu.updateInfoPaneMessageNoInputRequired(
-      `${this.#activePlayerMonster.name} used ${this.#activePlayerMonster.attacks[this.#activePlayerAttackIndex].name}`,
+      `${this.#activePlayerMonster.name} usó ${this.#activePlayerMonster.attacks[this.#activePlayerAttackIndex].name}`,
       () => {
         // play attack animation based on the selected attack
         // when attack is finished, play damage animation and then update health bar
@@ -334,7 +334,7 @@ export class BattleScene extends BaseScene {
     }
 
     this.#battleMenu.updateInfoPaneMessageNoInputRequired(
-      `foe ${this.#activeEnemyMonster.name} used ${
+      `La contraparte ${this.#activeEnemyMonster.name} usó ${
         this.#activeEnemyMonster.attacks[this.#activeEnemyAttackIndex].name
       }`,
       () => {
@@ -374,7 +374,7 @@ export class BattleScene extends BaseScene {
     if (this.#monsterCaptured) {
       // enemy monster was captured
       this.#activeEnemyMonster.playDeathAnimation(() => {
-        this.#showMessagesAndWaitForInput([`You caught ${this.#activeEnemyMonster.name}.`], () => {
+        this.#showMessagesAndWaitForInput([`Incorporaste a ${this.#activeEnemyMonster.name} al expediente.`], () => {
           this.#battleStateMachine.setState(BATTLE_STATES.GAIN_EXPERIENCE);
         });
       });
@@ -391,8 +391,8 @@ export class BattleScene extends BaseScene {
       // play monster fainted animation and wait for animation to finish
       this.#activeEnemyMonster.playDeathAnimation(() => {
         const text = this.#isTrainerBattle
-          ? `${this.#activeEnemyMonster.name} has been knocked out.`
-          : `Wild ${this.#activeEnemyMonster.name} fainted.`;
+          ? `${this.#activeEnemyMonster.name} quedó refutado.`
+          : `${this.#activeEnemyMonster.name} perdió fuerza argumentativa.`;
         this.#showMessagesAndWaitForInput([text], () => {
           this.#battleStateMachine.setState(BATTLE_STATES.GAIN_EXPERIENCE);
         });
@@ -418,10 +418,10 @@ export class BattleScene extends BaseScene {
         // if not, player faints and battle is over
         if (!hasOtherActiveMonsters) {
           const text = this.#isTrainerBattle
-            ? `${this.#sceneData.npc.name} has won the battle!`
-            : 'You have no more monsters, escaping to safety...';
+            ? `${this.#sceneData.npc.name} ganó la audiencia.`
+            : 'No quedan conceptos activos. Retirada estratégica...';
 
-          this.#showMessagesAndWaitForInput([`${this.#activePlayerMonster.name} fainted.`, text], () => {
+          this.#showMessagesAndWaitForInput([`${this.#activePlayerMonster.name} fue refutado.`, text], () => {
             this.#playerKnockedOut = true;
             this.#battleStateMachine.setState(BATTLE_STATES.FINISHED);
           });
@@ -431,7 +431,7 @@ export class BattleScene extends BaseScene {
         // we have active monsters, so show message about monster fainting and then show monster party scene
         // so player can choose next monster
         this.#showMessagesAndWaitForInput(
-          [`${this.#activePlayerMonster.name} fainted.`, 'Choose another monster to continue the battle.'],
+          [`${this.#activePlayerMonster.name} fue refutado.`, 'Elige otro concepto para continuar.'],
           () => {
             this.#activeMonsterKnockedOut = true;
             this.#battleStateMachine.setState(BATTLE_STATES.SWITCH_MONSTER);
@@ -528,8 +528,8 @@ export class BattleScene extends BaseScene {
           });
 
           const text = this.#isTrainerBattle
-            ? `${this.#sceneData.npc.name} brought out ${this.#activeEnemyMonster.name}.`
-            : `wild ${this.#activeEnemyMonster.name} appeared!`;
+            ? `${this.#sceneData.npc.name} invocó a ${this.#activeEnemyMonster.name}.`
+            : `Apareció ${this.#activeEnemyMonster.name}.`;
           this.#showMessagesAndWaitForInput([text], () => {
             // wait for text animation to complete and move to next state
             this.#battleStateMachine.setState(BATTLE_STATES.BRING_OUT_MONSTER);
@@ -546,7 +546,7 @@ export class BattleScene extends BaseScene {
           this.#activePlayerMonster.playMonsterHealthBarAppearAnimation(() => {
             this.#availableMonstersUiContainerForPlayer.setAlpha(1);
           });
-          this.#battleMenu.updateInfoPaneMessageNoInputRequired(`go ${this.#activePlayerMonster.name}!`, () => {
+          this.#battleMenu.updateInfoPaneMessageNoInputRequired(`¡Adelante, ${this.#activePlayerMonster.name}!`, () => {
             // wait for text animation to complete and move to next state
             this.time.delayedCall(BATTLE_TIMING.SEND_OUT_DELAY_MS, () => {
               if (this.#switchingActiveMonster && !this.#activeMonsterKnockedOut) {
@@ -661,7 +661,7 @@ export class BattleScene extends BaseScene {
         const randomNumber = Phaser.Math.Between(1, 10);
         if (randomNumber > 5) {
           // player has run away successfully
-          this.#showMessagesAndWaitForInput(['You got away safely!'], () => {
+          this.#showMessagesAndWaitForInput(['Retirada aceptada. La audiencia queda suspendida.'], () => {
             this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
               playSoundFx(this, AUDIO_ASSET_KEYS.FLEE);
               this.#battleStateMachine.setState(BATTLE_STATES.FINISHED);
@@ -670,7 +670,7 @@ export class BattleScene extends BaseScene {
           return;
         }
         // player failed to run away, allow enemy to take their turn
-        this.#showMessagesAndWaitForInput(['You failed to run away...'], () => {
+        this.#showMessagesAndWaitForInput(['No puedes retirarte todavía: la contraparte insiste.'], () => {
           this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
             this.#battleStateMachine.setState(BATTLE_STATES.ENEMY_INPUT);
           });
@@ -709,7 +709,7 @@ export class BattleScene extends BaseScene {
           if (index === this.#activePlayerMonsterPartyIndex) {
             statChanges = this.#activePlayerMonster.updateMonsterExp(gainedExpForActiveMonster);
             monsterMessages.push(
-              `${this.#sceneData.playerMonsters[index].name} gained ${gainedExpForActiveMonster} exp.`
+              `${this.#sceneData.playerMonsters[index].name} ganó ${gainedExpForActiveMonster} XP jurídico.`
             );
             if (statChanges.level !== 0) {
               didActiveMonsterLevelUp = true;
@@ -720,17 +720,17 @@ export class BattleScene extends BaseScene {
               gainedExpForInactiveMonster
             );
             monsterMessages.push(
-              `${this.#sceneData.playerMonsters[index].name} gained ${gainedExpForInactiveMonster} exp.`
+              `${this.#sceneData.playerMonsters[index].name} ganó ${gainedExpForInactiveMonster} XP jurídico.`
             );
           }
           if (statChanges !== undefined && statChanges.level !== 0) {
             monsterMessages.push(
-              `${this.#sceneData.playerMonsters[index].name} level increased to ${
+              `${this.#sceneData.playerMonsters[index].name} subió al nivel ${
                 this.#sceneData.playerMonsters[index].currentLevel
               }!`,
-              `${this.#sceneData.playerMonsters[index].name} attack increased by ${
+              `Argumento +${
                 statChanges.attack
-              } and health increased by ${statChanges.health}`
+              } y resistencia +${statChanges.health}.`
             );
           }
 
@@ -803,7 +803,7 @@ export class BattleScene extends BaseScene {
           );
         });
         if (!hasOtherActiveMonsters) {
-          this.#showMessagesAndWaitForInput(['You have no other monsters able to fight in your party'], () => {
+          this.#showMessagesAndWaitForInput(['No tienes otro concepto listo para argumentar.'], () => {
             this.#battleStateMachine.setState(BATTLE_STATES.PLAYER_INPUT);
           });
           return;
@@ -832,7 +832,7 @@ export class BattleScene extends BaseScene {
 
         // show text about bringing out next monster
         const nextMonster = this.#sceneData.enemyMonsters[this.#activeEnemyMonsterPartyIndex];
-        this.#showMessagesAndWaitForInput([`Foe is about to send in ${nextMonster.name}.`], () => {
+        this.#showMessagesAndWaitForInput([`La contraparte prepara a ${nextMonster.name}.`], () => {
           this.#activeEnemyMonster.switchMonster(nextMonster);
           // have monster appear, and show updated health bar
           this.#activeEnemyMonster.playMonsterAppearAnimation(() => {
@@ -917,7 +917,7 @@ export class BattleScene extends BaseScene {
         await this.#activeEnemyMonster.playCatchAnimationFailed();
 
         // TODO: refactor to use async/await
-        this.#showMessagesAndWaitForInput(['The wild monster breaks free!'], () => {
+        this.#showMessagesAndWaitForInput(['La criatura jurídica se libera del expediente.'], () => {
           this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
             this.#enemyAttack(() => {
               this.#battleStateMachine.setState(BATTLE_STATES.POST_ATTACK_CHECK);

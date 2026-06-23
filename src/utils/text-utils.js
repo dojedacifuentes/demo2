@@ -31,7 +31,7 @@ export function animateText(scene, target, text, config) {
   });
 }
 
-export const CANNOT_READ_SIGN_TEXT = 'You cannot read the sign from this direction.';
-export const SAMPLE_TEXT = 'Make sure you talk to npcs for helpful tips!';
+export const CANNOT_READ_SIGN_TEXT = 'No puedes leer el cartel desde este ángulo.';
+export const SAMPLE_TEXT = 'Habla con ciudadanos y profesores: cada uno guarda una pista.';
 export const LONG_SAMPLE_TEXT =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim sed faucibus turpis in eu mi bibendum.';

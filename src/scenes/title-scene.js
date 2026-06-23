@@ -14,7 +14,7 @@ import { LEX_QUEST_COPY } from '../lex-quest/lex-quest-config.js';
 /** @type {Phaser.Types.GameObjects.Text.TextStyle} */
 const MENU_TEXT_STYLE = Object.freeze({
   fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
-  color: '#4D4A49',
+  color: '#101827',
   fontSize: '30px',
 });
 
@@ -88,8 +88,15 @@ export class TitleScene extends BaseScene {
     this.add
       .text(this.scale.width / 2, 195, LEX_QUEST_COPY.subtitle, {
         fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
-        color: '#2f3e46',
+        color: '#00d9ff',
         fontSize: '34px',
+      })
+      .setOrigin(0.5);
+    this.add
+      .text(this.scale.width / 2, 238, LEX_QUEST_COPY.motto, {
+        fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+        color: '#f7c948',
+        fontSize: '24px',
       })
       .setOrigin(0.5);
 
@@ -101,12 +108,12 @@ export class TitleScene extends BaseScene {
       200,
       UI_ASSET_KEYS.MENU_BACKGROUND
     );
-    const newGameText = this.add.text(menuBgWidth / 2, 40, 'New Game', MENU_TEXT_STYLE).setOrigin(0.5);
-    const continueText = this.add.text(menuBgWidth / 2, 90, 'Continue', MENU_TEXT_STYLE).setOrigin(0.5);
+    const newGameText = this.add.text(menuBgWidth / 2, 40, 'Nuevo expediente', MENU_TEXT_STYLE).setOrigin(0.5);
+    const continueText = this.add.text(menuBgWidth / 2, 90, 'Continuar', MENU_TEXT_STYLE).setOrigin(0.5);
     if (!this.#isContinueButtonEnabled) {
       continueText.setAlpha(0.5);
     }
-    const optionText = this.add.text(menuBgWidth / 2, 140, 'Options', MENU_TEXT_STYLE).setOrigin(0.5);
+    const optionText = this.add.text(menuBgWidth / 2, 140, 'Opciones', MENU_TEXT_STYLE).setOrigin(0.5);
     const menuContainer = this.add.container(0, 0, [menuBgContainer, newGameText, continueText, optionText]);
     menuContainer.setPosition(this.scale.width / 2 - menuBgWidth / 2, 300);
 

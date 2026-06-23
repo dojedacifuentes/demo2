@@ -9,8 +9,8 @@ import { BaseScene } from './base-scene.js';
 import { SCENE_KEYS } from './scene-keys.js';
 import { ITEM_CATEGORY } from '../types/typedef.js';
 
-const CANCEL_TEXT_DESCRIPTION = 'Close your bag, and go back to adventuring!';
-const CANNOT_USE_ITEM_TEXT = 'That item cannot be used right now.';
+const CANCEL_TEXT_DESCRIPTION = 'Cerrar la mochila y volver al expediente.';
+const CANNOT_USE_ITEM_TEXT = 'Ese objeto no puede usarse ahora.';
 
 const INVENTORY_ITEM_POSITION = Object.freeze({
   x: 50,
@@ -131,7 +131,7 @@ export class InventoryScene extends BaseScene {
     const titleContainerBackground = this.add.rectangle(4, 4, 232, 56, 0xffff88).setOrigin(0).setAlpha(0.6);
     titleContainer.add(titleContainerBackground);
 
-    const textTitle = this.add.text(116, 28, 'Items', INVENTORY_TEXT_STYLE).setOrigin(0.5);
+    const textTitle = this.add.text(116, 28, 'Objetos', INVENTORY_TEXT_STYLE).setOrigin(0.5);
     titleContainer.add(textTitle);
 
     // create inventory text from available items
@@ -164,7 +164,7 @@ export class InventoryScene extends BaseScene {
     const cancelText = this.add.text(
       INVENTORY_ITEM_POSITION.x,
       INVENTORY_ITEM_POSITION.y + this.#inventory.length * INVENTORY_ITEM_POSITION.space,
-      'Cancel',
+      'Cerrar',
       INVENTORY_TEXT_STYLE
     );
     container.add(cancelText);
@@ -247,7 +247,7 @@ export class InventoryScene extends BaseScene {
           // TODO: this logic will need to be updated if we support a monster storage system
           // validate we have room in our party before attempting capture
           if (dataManager.isPartyFull()) {
-            this.#selectedInventoryDescriptionText.setText('You have no room in your party! Cannot use that item.');
+            this.#selectedInventoryDescriptionText.setText('Tu equipo está completo. No puedes usar esa cédula.');
             this.#waitingForInput = true;
             return;
           }

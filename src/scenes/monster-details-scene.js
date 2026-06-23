@@ -77,7 +77,7 @@ export class MonsterDetailsScene extends BaseScene {
 
     // create main background and title
     this.add.image(0, 0, MONSTER_PARTY_ASSET_KEYS.MONSTER_DETAILS_BACKGROUND).setOrigin(0);
-    this.add.text(10, 0, 'Monster Details', {
+    this.add.text(10, 0, 'Ficha de criatura', {
       ...UI_TEXT_STYLE,
       fontSize: '48px',
     });
@@ -110,9 +110,9 @@ export class MonsterDetailsScene extends BaseScene {
     }
 
     // add monster exp details
-    this.add.text(20, 340, 'Current Exp.', MONSTER_EXP_TEXT_STYLE).setOrigin(0, 0);
+    this.add.text(20, 340, 'XP jurídica', MONSTER_EXP_TEXT_STYLE).setOrigin(0, 0);
     this.add.text(516, 340, `${this.#monsterDetails.currentExp}`, MONSTER_EXP_TEXT_STYLE).setOrigin(1, 0);
-    this.add.text(20, 365, 'Exp. to next level', MONSTER_EXP_TEXT_STYLE);
+    this.add.text(20, 365, 'XP al próximo nivel', MONSTER_EXP_TEXT_STYLE);
     this.add
       .text(
         516,

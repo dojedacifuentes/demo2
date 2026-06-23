@@ -7,14 +7,14 @@
         "requires": ["LOOKING_FOR_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["The professor next door was looking for you."]
+          "messages": ["El profesor civilista de la sala contigua te estaba buscando."]
         }
       },
       {
         "requires": ["FOUND_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["You should take a quick rest."]
+          "messages": ["Descansa un momento. Ningún argumento sobrevive sin café y método."]
         }
       },
       {
@@ -35,7 +35,7 @@
         "requires": ["FOUND_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Oh good! You and your monsters are looking great!"]
+          "messages": ["Mucho mejor. Tus conceptos jurídicos vuelven a estar en forma."]
         }
       }
     ]
@@ -48,14 +48,14 @@
         "requires": ["LOOKING_FOR_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["I last saw the professor heading out of town."]
+          "messages": ["Vi al profesor salir hacia la Plaza de la Justicia. Llevaba un expediente raro."]
         }
       },
       {
         "requires": ["FOUND_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Make sure you read the signposts for helpful tips!"]
+          "messages": ["Lee los carteles. En Ciudad Lex, hasta la señalética tiene doctrina."]
         }
       }
     ]
@@ -68,7 +68,7 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["You can save your game from the menu.", "To open the menu, press the ENTER key."]
+          "messages": ["Puedes guardar el expediente desde el menú.", "Presiona ENTER para abrir la interfaz."]
         }
       }
     ]
@@ -81,7 +81,7 @@
         "requires": ["TRAINER_NOT_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Hey! Let's battle!"]
+          "messages": ["¡Objeción! Demuestra que puedes sostener tu tesis."]
         }
       },
       {
@@ -90,15 +90,15 @@
         "data": {
           "monsters": [7],
           "assetKey": "TRAINER_YOUTH_GIRL",
-          "trainerName": "Jr. Trainer",
-          "trainerLostMessages": ["You defeated me!"]
+          "trainerName": "Fiscal novel",
+          "trainerLostMessages": ["Bien argumentado. Retiro mi objeción."]
         }
       },
       {
         "requires": ["TRAINER_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["That was great battle!"]
+          "messages": ["Ese contraexamen fue impecable."]
         }
       }
     ]
@@ -111,7 +111,7 @@
         "requires": ["TRAINER_NOT_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Hey! Let's battle!"]
+          "messages": ["Traigo un caso breve. Veamos si detectas la institución correcta."]
         }
       },
       {
@@ -120,15 +120,15 @@
         "data": {
           "monsters": [6],
           "assetKey": "TRAINER_YOUTH_BOY",
-          "trainerName": "Jr. Trainer",
-          "trainerLostMessages": ["You are a strong trainer!"]
+          "trainerName": "Litigante joven",
+          "trainerLostMessages": ["Tienes una teoría del caso bastante afilada."]
         }
       },
       {
         "requires": ["TRAINER_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["I'll have to get stronger."]
+          "messages": ["Tendré que estudiar mejor la carga de la prueba."]
         }
       }
     ]
@@ -141,7 +141,7 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["You should make sure to stock up on items."]
+          "messages": ["Antes de litigar, compra café procesal y cédulas de captura."]
         }
       }
     ]
@@ -154,7 +154,7 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["I would stay out of the spooky forest."]
+          "messages": ["No entres sin preparar tu argumento. El bosque de nulidades no perdona."]
         }
       }
     ]
@@ -167,7 +167,7 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Make sure you heal your team before you head out!"]
+          "messages": ["Revisa tus conceptos antes de salir: una mala premisa arruina todo el caso."]
         }
       }
     ]
@@ -180,7 +180,7 @@
         "requires": ["TRAINER_NOT_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Hey! Let's battle!"]
+          "messages": ["Tengo dos argumentos acumulados. Contesta con precisión."]
         }
       },
       {
@@ -189,15 +189,15 @@
         "data": {
           "monsters": [6, 7],
           "assetKey": "TRAINER_YOUTH_BOY",
-          "trainerName": "Jr. Trainer",
-          "trainerLostMessages": ["I'll need to keep practicing."]
+          "trainerName": "Abogado litigante",
+          "trainerLostMessages": ["Necesito practicar más la réplica."]
         }
       },
       {
         "requires": ["TRAINER_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["I'll need to train before we battle again!"]
+          "messages": ["Volveré con jurisprudencia y mejores preguntas."]
         }
       }
     ]
@@ -210,7 +210,7 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Feel free to rest here."]
+          "messages": ["Puedes descansar aquí. La biblioteca también cura el desgaste mental."]
         }
       },
       {
@@ -231,7 +231,7 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Oh good! You and your monsters are looking great!"]
+          "messages": ["Listo. Tus criaturas jurídicas recuperaron claridad y fuerza."]
         }
       }
     ]

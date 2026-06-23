@@ -120,7 +120,7 @@ export class MonsterPartyScene extends BaseScene {
     // create button
     const buttonContainer = this.add.container(883, 519, []);
     this.#cancelButton = this.add.image(0, 0, UI_ASSET_KEYS.BLUE_BUTTON, 0).setOrigin(0).setScale(0.7, 1).setAlpha(0.7);
-    const cancelText = this.add.text(66.5, 20.6, 'cancel', UI_TEXT_STYLE).setOrigin(0.5);
+    const cancelText = this.add.text(66.5, 20.6, 'cerrar', UI_TEXT_STYLE).setOrigin(0.5);
     buttonContainer.add([this.#cancelButton, cancelText]);
 
     // create info container
@@ -256,10 +256,10 @@ export class MonsterPartyScene extends BaseScene {
    */
   #updateInfoContainerText() {
     if (this.#selectedPartyMonsterIndex === -1) {
-      this.#infoTextGameObject.setText('Go back to previous menu');
+      this.#infoTextGameObject.setText('Volver al menú anterior');
       return;
     }
-    this.#infoTextGameObject.setText('Choose a monster');
+    this.#infoTextGameObject.setText('Elige una criatura jurídica');
   }
 
   /**
@@ -350,7 +350,7 @@ export class MonsterPartyScene extends BaseScene {
       !wasMonsterSelected
     ) {
       // if active monster was knocked out, return early since we need to pick a new monster for battle
-      this.#infoTextGameObject.setText('You must select a new monster for battle.');
+      this.#infoTextGameObject.setText('Debes elegir otra criatura para seguir el debate.');
       this.#waitingForInput = true;
       this.#menu.hide();
       return;
@@ -439,7 +439,7 @@ export class MonsterPartyScene extends BaseScene {
   #handleHealItemUsed(amount) {
     // validate that the monster is not fainted
     if (this.#monsters[this.#selectedPartyMonsterIndex].currentHp === 0) {
-      this.#infoTextGameObject.setText('Cannot heal fainted monster');
+      this.#infoTextGameObject.setText('No puedes recuperar una criatura refutada.');
       this.#waitingForInput = true;
       this.#menu.hide();
       return;
@@ -450,7 +450,7 @@ export class MonsterPartyScene extends BaseScene {
       this.#monsters[this.#selectedPartyMonsterIndex].currentHp ===
       this.#monsters[this.#selectedPartyMonsterIndex].maxHp
     ) {
-      this.#infoTextGameObject.setText('Monster is already fully healed');
+      this.#infoTextGameObject.setText('La criatura ya está en plena forma.');
       this.#waitingForInput = true;
       this.#menu.hide();
       return;
@@ -464,7 +464,7 @@ export class MonsterPartyScene extends BaseScene {
     ) {
       this.#monsters[this.#selectedPartyMonsterIndex].currentHp = this.#monsters[this.#selectedPartyMonsterIndex].maxHp;
     }
-    this.#infoTextGameObject.setText(`Healed monster by ${amount} HP`);
+    this.#infoTextGameObject.setText(`Recuperaste ${amount} puntos de resistencia.`);
     this.#healthBars[this.#selectedPartyMonsterIndex].setMeterPercentageAnimated(
       this.#monsters[this.#selectedPartyMonsterIndex].currentHp / this.#monsters[this.#selectedPartyMonsterIndex].maxHp,
       {
@@ -489,7 +489,7 @@ export class MonsterPartyScene extends BaseScene {
   #handleMonsterSelectedForSwitch() {
     // validate that the monster is not fainted
     if (this.#monsters[this.#selectedPartyMonsterIndex].currentHp === 0) {
-      this.#infoTextGameObject.setText('Selected monster is not able to fight.');
+      this.#infoTextGameObject.setText('Esa criatura no puede debatir ahora.');
       this.#waitingForInput = true;
       this.#menu.hide();
       return;
@@ -497,7 +497,7 @@ export class MonsterPartyScene extends BaseScene {
 
     // validate that the selected monster is not the current active monster in battle
     if (this.#sceneData.activeBattleMonsterPartyIndex === this.#selectedPartyMonsterIndex) {
-      this.#infoTextGameObject.setText('Selected monster is already battling');
+      this.#infoTextGameObject.setText('Esa criatura ya está en el debate.');
       this.#waitingForInput = true;
       this.#menu.hide();
       return;
@@ -553,7 +553,7 @@ export class MonsterPartyScene extends BaseScene {
 
       if (this.#menu.selectedMenuOption === MONSTER_PARTY_MENU_OPTIONS.RELEASE) {
         if (this.#monsters.length <= 1) {
-          this.#infoTextGameObject.setText('Cannot release last monster in party');
+          this.#infoTextGameObject.setText('No puedes liberar la última criatura del equipo.');
           this.#waitingForInput = true;
           this.#menu.hide();
           return;
@@ -561,13 +561,13 @@ export class MonsterPartyScene extends BaseScene {
 
         this.#menu.hide();
         this.#confirmationMenu.show();
-        this.#infoTextGameObject.setText(`Release ${this.#monsters[this.#selectedPartyMonsterIndex].name}?`);
+        this.#infoTextGameObject.setText(`¿Liberar a ${this.#monsters[this.#selectedPartyMonsterIndex].name}?`);
         return;
       }
 
       if (this.#menu.selectedMenuOption === MONSTER_PARTY_MENU_OPTIONS.MOVE) {
         if (this.#monsters.length <= 1) {
-          this.#infoTextGameObject.setText('Cannot move monster');
+          this.#infoTextGameObject.setText('No hay otra criatura para intercambiar.');
           this.#waitingForInput = true;
           this.#menu.hide();
           return;
@@ -575,7 +575,7 @@ export class MonsterPartyScene extends BaseScene {
 
         this.#isMovingMonster = true;
         this.#monsterToBeMovedIndex = this.#selectedPartyMonsterIndex;
-        this.#infoTextGameObject.setText('Choose a monster to switch positions with');
+        this.#infoTextGameObject.setText('Elige una criatura para intercambiar posición.');
         this.#menu.hide();
         return;
       }
@@ -611,9 +611,7 @@ export class MonsterPartyScene extends BaseScene {
 
         if (this.#menu.selectedMenuOption === MONSTER_PARTY_MENU_OPTIONS.RELEASE) {
           this._controls.lockInput = true;
-          this.#infoTextGameObject.setText(
-            `You released ${this.#monsters[this.#selectedPartyMonsterIndex].name} into the wild.`
-          );
+          this.#infoTextGameObject.setText(`Liberaste a ${this.#monsters[this.#selectedPartyMonsterIndex].name}.`);
           this.time.delayedCall(1000, () => {
             this.#removeMonster();
             this._controls.lockInput = false;

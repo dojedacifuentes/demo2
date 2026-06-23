@@ -305,8 +305,8 @@ export class WorldScene extends BaseScene {
         if (this.#sceneData.isPlayerKnockedOut) {
           this.#healPlayerParty();
           this.#dialogUi.showDialogModal([
-            'It looks like your team put up quite a fight...',
-            'I went ahead and healed them up for you.',
+            'Tu equipo resistió una audiencia difícil...',
+            'Restauré tus conceptos jurídicos. Vuelve con método.',
           ]);
         }
       }
@@ -411,13 +411,13 @@ export class WorldScene extends BaseScene {
         if (this.#menu.selectedMenuOption === 'SAVE') {
           this.#menu.hide();
           dataManager.saveData();
-          this.#dialogUi.showDialogModal(['Game progress has been saved']);
+          this.#dialogUi.showDialogModal(['Expediente guardado.']);
         }
 
         if (this.#menu.selectedMenuOption === 'MONSTERS') {
           // at start of the game, handle when we have no monsters in our party
           if (dataManager.store.get(DATA_MANAGER_STORE_KEYS.MONSTERS_IN_PARTY).length === 0) {
-            this.#dialogUi.showDialogModal(['You have no monsters in your party.']);
+            this.#dialogUi.showDialogModal(['No tienes criaturas jurídicas en tu equipo.']);
             this.#menu.hide();
             return;
           }
@@ -541,7 +541,7 @@ export class WorldScene extends BaseScene {
       nearbyItem.gameObject.destroy();
       this.#items.splice(nearbyItemIndex, 1);
       dataManager.addItemPickedUp(nearbyItem.id);
-      this.#dialogUi.showDialogModal([`You found a ${item.name}`]);
+    this.#dialogUi.showDialogModal([`Encontraste: ${item.name}`]);
     }
   }
 

@@ -10,8 +10,28 @@ import { MENU_COLOR } from './menu-config.js';
 const MENU_TEXT_STYLE = {
   fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
   color: '#FFFFFF',
-  fontSize: '32px',
+  fontSize: '28px',
 };
+
+const MENU_LABELS = Object.freeze({
+  MONSTERDEX: 'CÓDEX',
+  MONSTERS: 'CRIATURAS',
+  BAG: 'MOCHILA',
+  SAVE: 'GUARDAR',
+  OPTIONS: 'OPCIONES',
+  EXIT: 'SALIR',
+  SELECT: 'SELECCIONAR',
+  SUMMARY: 'FICHA',
+  CANCEL: 'CANCELAR',
+  RELEASE: 'LIBERAR',
+  MOVE: 'MOVER',
+  YES: 'SÍ',
+  NO: 'NO',
+});
+
+function getMenuLabel(option) {
+  return MENU_LABELS[option] || option;
+}
 
 export class Menu {
   /** @type {Phaser.Scene} */
@@ -60,7 +80,7 @@ export class Menu {
     // update menu container with menu options
     for (let i = 0; i < this.#availableMenuOptions.length; i += 1) {
       const y = 10 + 50 * i + this.#padding;
-      const textObj = this.#scene.add.text(40 + this.#padding, y, this.#availableMenuOptions[i], MENU_TEXT_STYLE);
+      const textObj = this.#scene.add.text(40 + this.#padding, y, getMenuLabel(this.#availableMenuOptions[i]), MENU_TEXT_STYLE);
       this.#menuOptionsTextGameObjects.push(textObj);
       this.#container.add(textObj);
     }

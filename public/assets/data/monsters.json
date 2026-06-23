@@ -2,7 +2,7 @@
   {
     "id": "1",
     "monsterId": 1,
-    "name": "iguanignite",
+    "name": "LEXIS",
     "assetKey": "IGUANIGNITE",
     "assetFrame": 0,
     "currentHp": 25,
@@ -17,7 +17,7 @@
   {
     "id": "2",
     "monsterId": 2,
-    "name": "carnodusk",
+    "name": "CONTRACTUS",
     "assetKey": "CARNODUSK",
     "assetFrame": 0,
     "currentHp": 25,
@@ -32,7 +32,7 @@
   {
     "id": "3",
     "monsterId": 3,
-    "name": "ignivolt",
+    "name": "DOMINIUM",
     "assetKey": "IGNIVOLT",
     "assetFrame": 0,
     "currentHp": 25,
@@ -47,7 +47,7 @@
   {
     "id": "4",
     "monsterId": 4,
-    "name": "aquavalor",
+    "name": "GARANTIA",
     "assetKey": "AQUAVALOR",
     "assetFrame": 0,
     "currentHp": 25,
@@ -62,7 +62,7 @@
   {
     "id": "5",
     "monsterId": 5,
-    "name": "frostsaber",
+    "name": "BONA FIDES",
     "assetKey": "FROSTSABER",
     "assetFrame": 0,
     "currentHp": 25,
@@ -77,7 +77,7 @@
   {
     "id": "6",
     "monsterId": 3,
-    "name": "ignivolt",
+    "name": "DOMINIUM",
     "assetKey": "IGNIVOLT",
     "assetFrame": 0,
     "currentHp": 15,
@@ -92,7 +92,7 @@
   {
     "id": "7",
     "monsterId": 2,
-    "name": "carnodusk",
+    "name": "CONTRACTUS",
     "assetKey": "CARNODUSK",
     "assetFrame": 0,
     "currentHp": 15,

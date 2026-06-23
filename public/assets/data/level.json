@@ -633,7 +633,7 @@
                         {
                          "name":"message",
                          "type":"string",
-                         "value":"MONSTER FAN CLUB\nAll Monster fans welcome!"
+                         "value":"CAFÉ LEX\nLitigantes y estudiantes bienvenidos."
                         }],
                  "rotation":0,
                  "type":"",
@@ -669,7 +669,7 @@
                         {
                          "name":"message",
                          "type":"string",
-                         "value":"TRAINER TIPS\nIf you want to avoid battles, stay away from grassy areas!"
+                         "value":"CONSEJO DE LITIGIO\nSi quieres evitar debates, aléjate de las zonas de conflicto."
                         }],
                  "rotation":0,
                  "type":"",
@@ -736,7 +736,7 @@
                                 {
                                  "name":"messages",
                                  "type":"string",
-                                 "value":"Make sure you read the signposts for helpful tips!"
+                                 "value":"Lee los avisos: suelen esconder pistas útiles."
                                 }, 
                                 {
                                  "name":"movement_pattern",
@@ -848,7 +848,7 @@
                                 {
                                  "name":"messages",
                                  "type":"string",
-                                 "value":"You can save your game from the menu.::To open the menu, press the ENTER key."
+                                 "value":"Puedes guardar el expediente desde el menú.::Para abrir el menú, presiona ENTER."
                                 }, 
                                 {
                                  "name":"movement_pattern",

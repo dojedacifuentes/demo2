@@ -1,13 +1,13 @@
 [
   {
     "id": 1,
-    "name": "ice shard",
+    "name": "Presentar prueba",
     "animationName": "ICE_SHARD",
     "audioKey": "ICE"
   },
   {
     "id": 2,
-    "name": "slash",
+    "name": "Invocar norma",
     "animationName": "SLASH",
     "audioKey": "CLAW"
   }

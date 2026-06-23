@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "name": "potion",
-    "description": "A basic healing item that will heal 30 HP from a single monster.",
+    "name": "café procesal",
+    "description": "Restaura 30 HP a una criatura jurídica. Sabe a biblioteca abierta hasta tarde.",
     "category": "HEAL",
     "effect": "HEAL_30"
   },
   {
     "id": 2,
-    "name": "damaged ball",
-    "description": "A damaged ball that can be used for capturing monsters.",
+    "name": "cédula de captura",
+    "description": "Permite incorporar una criatura jurídica debilitada al expediente del jugador.",
     "category": "CAPTURE",
     "effect": "CAPTURE_1"
   }

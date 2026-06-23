@@ -24,13 +24,13 @@ const OPTIONS_TEXT_STYLE = {
 };
 
 const OPTION_MENU_OPTION_INFO_MSG = Object.freeze({
-  TEXT_SPEED: 'Choose one of three text display speeds.',
-  BATTLE_SCENE: 'Choose to display battle animations and effects or not.',
-  BATTLE_STYLE: 'Choose to allow your monster to be recalled between rounds.',
-  SOUND: 'Choose to enable or disable the sound.',
-  VOLUME: 'Choose the volume of the music and sound effects of the game.',
-  MENU_COLOR: 'Choose one of the three menu color options.',
-  CONFIRM: 'Save your changes and go back to the main menu.',
+  TEXT_SPEED: 'Elige la velocidad de lectura de los diálogos.',
+  BATTLE_SCENE: 'Activa o desactiva animaciones y efectos de debate.',
+  BATTLE_STYLE: 'Define si puedes cambiar criaturas entre turnos.',
+  SOUND: 'Activa o desactiva el sonido.',
+  VOLUME: 'Ajusta el volumen de música y efectos.',
+  MENU_COLOR: 'Elige el color de los cuadros de menú.',
+  CONFIRM: 'Guarda los cambios y vuelve al menú principal.',
 });
 
 const TEXT_FONT_COLORS = Object.freeze({
@@ -126,13 +126,13 @@ export class OptionsScene extends BaseScene {
     this.#mainContainer.setX(100).setY(20);
 
     // create main option sections
-    this.add.text(width / 2, 40, 'Options', OPTIONS_TEXT_STYLE).setOrigin(0.5);
+    this.add.text(width / 2, 40, 'Opciones', OPTIONS_TEXT_STYLE).setOrigin(0.5);
     const menuOptionsPosition = {
       x: 25,
       yStart: 55,
       yIncrement: 55,
     };
-    const menuOptions = ['Text Speed', 'Battle Scene', 'Battle Style', 'Sound', 'Volume', 'Menu Color', 'Close'];
+    const menuOptions = ['Velocidad texto', 'Animaciones', 'Estilo debate', 'Sonido', 'Volumen', 'Color menú', 'Cerrar'];
     menuOptions.forEach((option, index) => {
       const x = menuOptionsPosition.x;
       const y = menuOptionsPosition.yStart + menuOptionsPosition.yIncrement * index;
@@ -142,27 +142,27 @@ export class OptionsScene extends BaseScene {
 
     // create text speed options
     this.#textSpeedOptionTextGameObjects = this.add.group([
-      this.add.text(420, 75, 'Slow', OPTIONS_TEXT_STYLE),
-      this.add.text(590, 75, 'Mid', OPTIONS_TEXT_STYLE),
-      this.add.text(760, 75, 'Fast', OPTIONS_TEXT_STYLE),
+      this.add.text(420, 75, 'Lenta', OPTIONS_TEXT_STYLE),
+      this.add.text(590, 75, 'Media', OPTIONS_TEXT_STYLE),
+      this.add.text(760, 75, 'Rápida', OPTIONS_TEXT_STYLE),
     ]);
 
     // create battle scene options
     this.#battleSceneOptionTextGameObjects = this.add.group([
-      this.add.text(420, 130, 'On', OPTIONS_TEXT_STYLE),
-      this.add.text(590, 130, 'Off', OPTIONS_TEXT_STYLE),
+      this.add.text(420, 130, 'Sí', OPTIONS_TEXT_STYLE),
+      this.add.text(590, 130, 'No', OPTIONS_TEXT_STYLE),
     ]);
 
     // create battle style options
     this.#battleStyleOptionTextGameObjects = this.add.group([
-      this.add.text(420, 185, 'Set', OPTIONS_TEXT_STYLE),
-      this.add.text(590, 185, 'Shift', OPTIONS_TEXT_STYLE),
+      this.add.text(420, 185, 'Fijo', OPTIONS_TEXT_STYLE),
+      this.add.text(590, 185, 'Cambio', OPTIONS_TEXT_STYLE),
     ]);
 
     // create sound options
     this.#soundOptionTextGameObjects = this.add.group([
-      this.add.text(420, 240, 'On', OPTIONS_TEXT_STYLE),
-      this.add.text(590, 240, 'Off', OPTIONS_TEXT_STYLE),
+      this.add.text(420, 240, 'Sí', OPTIONS_TEXT_STYLE),
+      this.add.text(590, 240, 'No', OPTIONS_TEXT_STYLE),
     ]);
 
     // volume options
