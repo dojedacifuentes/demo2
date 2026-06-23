@@ -43,6 +43,7 @@ export class PreloadScene extends BaseScene {
     const pimenAssetPath = 'assets/images/pimen';
     const axulArtAssetPath = 'assets/images/axulart';
     const pbGamesAssetPath = 'assets/images/parabellum-games';
+    const lexQuestAssetPath = 'assets/images/lex-quest';
 
     // external social links assets
     if (SHOW_SOCIAL_LINKS) {
@@ -59,15 +60,15 @@ export class PreloadScene extends BaseScene {
     }
 
     // battle backgrounds
-    this.load.image(
+    this.load.svg(
       BATTLE_BACKGROUND_ASSET_KEYS.FOREST,
-      `${monsterTamerAssetPath}/battle-backgrounds/forest-background.png`
+      `${lexQuestAssetPath}/battle/courtroom-background.svg`
     );
 
     // battle assets
     this.load.image(BATTLE_ASSET_KEYS.HEALTH_BAR_BACKGROUND, `${kenneysAssetPath}/ui-space-expansion/custom-ui.png`);
-    this.load.image(BATTLE_ASSET_KEYS.BALL_THUMBNAIL, `${monsterTamerAssetPath}/battle/cosmoball.png`);
-    this.load.image(BATTLE_ASSET_KEYS.DAMAGED_BALL, `${monsterTamerAssetPath}/battle/damagedBall.png`);
+    this.load.svg(BATTLE_ASSET_KEYS.BALL_THUMBNAIL, `${lexQuestAssetPath}/battle/case-file-32.svg`);
+    this.load.svg(BATTLE_ASSET_KEYS.DAMAGED_BALL, `${lexQuestAssetPath}/battle/case-file-512.svg`);
     this.load.image(BATTLE_ASSET_KEYS.TRAINER_YOUTH_BOY, `${monsterTamerAssetPath}/battle/trainer_youth_boy.png`);
     this.load.image(BATTLE_ASSET_KEYS.TRAINER_YOUTH_GIRL, `${monsterTamerAssetPath}/battle/trainer_youth_girl.png`);
 
@@ -107,11 +108,13 @@ export class PreloadScene extends BaseScene {
     );
 
     // monster assets
-    this.load.image(MONSTER_ASSET_KEYS.CARNODUSK, `${monsterTamerAssetPath}/monsters/carnodusk.png`);
-    this.load.image(MONSTER_ASSET_KEYS.IGUANIGNITE, `${monsterTamerAssetPath}/monsters/iguanignite.png`);
-    this.load.image(MONSTER_ASSET_KEYS.AQUAVALOR, `${monsterTamerAssetPath}/monsters/aquavalor.png`);
-    this.load.image(MONSTER_ASSET_KEYS.FROSTSABER, `${monsterTamerAssetPath}/monsters/frostsaber.png`);
-    this.load.image(MONSTER_ASSET_KEYS.IGNIVOLT, `${monsterTamerAssetPath}/monsters/ignivolt.png`);
+    this.load.svg(MONSTER_ASSET_KEYS.CARNODUSK, `${lexQuestAssetPath}/monsters/contractus.svg`);
+    this.load.svg(MONSTER_ASSET_KEYS.IGUANIGNITE, `${lexQuestAssetPath}/monsters/lexis.svg`);
+    this.load.svg(MONSTER_ASSET_KEYS.AQUAVALOR, `${lexQuestAssetPath}/monsters/garantia.svg`);
+    this.load.svg(MONSTER_ASSET_KEYS.FROSTSABER, `${lexQuestAssetPath}/monsters/bona-fides.svg`);
+    this.load.svg(MONSTER_ASSET_KEYS.IGNIVOLT, `${lexQuestAssetPath}/monsters/dominium.svg`);
+    this.load.svg(MONSTER_ASSET_KEYS.PRESCRIPTIO, `${lexQuestAssetPath}/monsters/prescriptio.svg`);
+    this.load.svg(MONSTER_ASSET_KEYS.VICIO_OCULTO, `${lexQuestAssetPath}/monsters/vicio-oculto.svg`);
 
     // ui assets
     this.load.image(UI_ASSET_KEYS.CURSOR, `${monsterTamerAssetPath}/ui/cursor.png`);
@@ -157,60 +160,61 @@ export class PreloadScene extends BaseScene {
       frameWidth: 64,
       frameHeight: 64,
     });
-    this.load.image(WORLD_ASSET_KEYS.MAIN_1_BACKGROUND, `${monsterTamerAssetPath}/map/main_1_level_background.png`);
+    this.load.svg(WORLD_ASSET_KEYS.MAIN_1_BACKGROUND, `${lexQuestAssetPath}/map/main_1_level_background.svg`);
     this.load.tilemapTiledJSON(WORLD_ASSET_KEYS.MAIN_1_LEVEL, `assets/data/main_1.json`);
     this.load.image(WORLD_ASSET_KEYS.WORLD_COLLISION, `${monsterTamerAssetPath}/map/collision.png`);
-    this.load.image(WORLD_ASSET_KEYS.MAIN_1_FOREGROUND, `${monsterTamerAssetPath}/map/main_1_level_foreground.png`);
+    this.load.svg(WORLD_ASSET_KEYS.MAIN_1_FOREGROUND, `${lexQuestAssetPath}/map/main_1_level_foreground.svg`);
     this.load.image(WORLD_ASSET_KEYS.WORLD_ENCOUNTER_ZONE, `${monsterTamerAssetPath}/map/encounter.png`);
+    this.load.svg(WORLD_ASSET_KEYS.EVIDENCE_PICKUP, `${lexQuestAssetPath}/map/evidence-pickup.svg`);
     this.load.spritesheet(WORLD_ASSET_KEYS.BEACH, `${axulArtAssetPath}/beach/crushed.png`, {
       frameWidth: 64,
       frameHeight: 64,
     });
-    this.load.image(
+    this.load.svg(
       BUILDING_ASSET_KEYS.BUILDING_1_FOREGROUND,
-      `${monsterTamerAssetPath}/map/buildings/building_1_level_foreground.png`
+      `${lexQuestAssetPath}/map/buildings/building_1_level_foreground.svg`
     );
-    this.load.image(
+    this.load.svg(
       BUILDING_ASSET_KEYS.BUILDING_1_BACKGROUND,
-      `${monsterTamerAssetPath}/map/buildings/building_1_level_background.png`
+      `${lexQuestAssetPath}/map/buildings/building_1_level_background.svg`
     );
     this.load.tilemapTiledJSON(BUILDING_ASSET_KEYS.BUILDING_1_LEVEL, `assets/data/building_1.json`);
-    this.load.image(
+    this.load.svg(
       BUILDING_ASSET_KEYS.BUILDING_2_FOREGROUND,
-      `${monsterTamerAssetPath}/map/buildings/building_2_level_foreground.png`
+      `${lexQuestAssetPath}/map/buildings/building_2_level_foreground.svg`
     );
-    this.load.image(
+    this.load.svg(
       BUILDING_ASSET_KEYS.BUILDING_2_BACKGROUND,
-      `${monsterTamerAssetPath}/map/buildings/building_2_level_background.png`
+      `${lexQuestAssetPath}/map/buildings/building_2_level_background.svg`
     );
     this.load.tilemapTiledJSON(BUILDING_ASSET_KEYS.BUILDING_3_LEVEL, `assets/data/building_3.json`);
-    this.load.image(
+    this.load.svg(
       BUILDING_ASSET_KEYS.BUILDING_3_FOREGROUND,
-      `${monsterTamerAssetPath}/map/buildings/building_3_level_foreground.png`
+      `${lexQuestAssetPath}/map/buildings/building_3_level_foreground.svg`
     );
-    this.load.image(
+    this.load.svg(
       BUILDING_ASSET_KEYS.BUILDING_3_BACKGROUND,
-      `${monsterTamerAssetPath}/map/buildings/building_3_level_background.png`
+      `${lexQuestAssetPath}/map/buildings/building_3_level_background.svg`
     );
     this.load.tilemapTiledJSON(BUILDING_ASSET_KEYS.BUILDING_2_LEVEL, `assets/data/building_2.json`);
 
-    this.load.image(WORLD_ASSET_KEYS.FOREST_1_BACKGROUND, `${monsterTamerAssetPath}/map/forest_1_level_background.png`);
-    this.load.image(WORLD_ASSET_KEYS.FOREST_1_FOREGROUND, `${monsterTamerAssetPath}/map/forest_1_level_foreground.png`);
+    this.load.svg(WORLD_ASSET_KEYS.FOREST_1_BACKGROUND, `${lexQuestAssetPath}/map/forest_1_level_background.svg`);
+    this.load.svg(WORLD_ASSET_KEYS.FOREST_1_FOREGROUND, `${lexQuestAssetPath}/map/forest_1_level_foreground.svg`);
     this.load.tilemapTiledJSON(WORLD_ASSET_KEYS.FOREST_1_LEVEL, `assets/data/forest_1.json`);
 
     // load character images
-    this.load.spritesheet(CHARACTER_ASSET_KEYS.PLAYER, `${axulArtAssetPath}/character/custom.png`, {
+    this.load.spritesheet(CHARACTER_ASSET_KEYS.PLAYER, `${lexQuestAssetPath}/characters/student-sheet.svg`, {
       frameWidth: 64,
       frameHeight: 88,
     });
-    this.load.spritesheet(CHARACTER_ASSET_KEYS.NPC, `${pbGamesAssetPath}/characters.png`, {
+    this.load.spritesheet(CHARACTER_ASSET_KEYS.NPC, `${lexQuestAssetPath}/characters/npc-legal-sheet.svg`, {
       frameWidth: 16,
       frameHeight: 16,
     });
 
     // ui components for title
-    this.load.image(TITLE_ASSET_KEYS.BACKGROUND, `${monsterTamerAssetPath}/ui/title/background.png`);
-    this.load.image(TITLE_ASSET_KEYS.PANEL, `${monsterTamerAssetPath}/ui/title/title_background.png`);
+    this.load.svg(TITLE_ASSET_KEYS.BACKGROUND, `${lexQuestAssetPath}/ui/title/background.svg`);
+    this.load.svg(TITLE_ASSET_KEYS.PANEL, `${lexQuestAssetPath}/ui/title/title_background.svg`);
     this.load.image(TITLE_ASSET_KEYS.TITLE, `${monsterTamerAssetPath}/ui/title/title_text.png`);
 
     // ui components for monster party

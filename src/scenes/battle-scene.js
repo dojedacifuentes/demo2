@@ -23,6 +23,7 @@ import { generateUuid } from '../utils/random.js';
 import { calculateMonsterCaptureResults } from '../utils/catch-utils.js';
 import { EnemyBattleNpc } from '../battle/enemy-battle-npc.js';
 import { BATTLE_TIMING } from '../config.js';
+import { KENNEY_FUTURE_NARROW_FONT_NAME } from '../assets/font-keys.js';
 
 const BATTLE_STATES = Object.freeze({
   INTRO: 'INTRO',
@@ -161,6 +162,7 @@ export class BattleScene extends BaseScene {
     // create main background
     const background = new Background(this);
     background.showForest();
+    this.#createBattleLearningPanel();
 
     // create the player and enemy monsters
     this.#activeEnemyMonster = new EnemyBattleMonster({
@@ -203,6 +205,30 @@ export class BattleScene extends BaseScene {
 
     // add audio
     playBackgroundMusic(this, AUDIO_ASSET_KEYS.BATTLE);
+  }
+
+  /**
+   * @returns {void}
+   */
+  #createBattleLearningPanel() {
+    const container = this.add.container(724, 300).setDepth(2);
+    const background = this.add.rectangle(0, 0, 276, 118, 0x081322, 0.82).setOrigin(0).setStrokeStyle(3, 0xf4b94a, 1);
+    const title = this.add.text(14, 10, 'CLAVES DEL TURNO', {
+      fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+      color: '#f4b94a',
+      fontSize: '20px',
+    });
+    const line1 = this.add.text(14, 42, 'Norma + hechos + prueba', {
+      fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+      color: '#f8f5e8',
+      fontSize: '20px',
+    });
+    const line2 = this.add.text(14, 72, 'Refuta lo que no encaje', {
+      fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+      color: '#33d8ff',
+      fontSize: '20px',
+    });
+    container.add([background, title, line1, line2]);
   }
 
   /**

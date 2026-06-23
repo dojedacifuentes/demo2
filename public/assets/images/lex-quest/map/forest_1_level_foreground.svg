@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="768" viewBox="0 0 1280 768" shape-rendering="crispEdges">
+<defs>
+  <linearGradient id="night" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#06101f"/>
+    <stop offset="0.55" stop-color="#0b1726"/>
+    <stop offset="1" stop-color="#111a28"/>
+  </linearGradient>
+  <linearGradient id="court" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#2b1712"/>
+    <stop offset="1" stop-color="#5d341f"/>
+  </linearGradient>
+  <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffd36c" stop-opacity="0.45"/>
+    <stop offset="1" stop-color="#ffd36c" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+    <path d="M64 0H0V64" fill="none" stroke="#17283a" stroke-width="2" opacity="0.35"/>
+  </pattern>
+  
+</defs>
+<rect x="0" y="0" width="1280" height="768" fill="#000" opacity="0"/>
+</svg>

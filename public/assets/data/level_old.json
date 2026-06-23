@@ -441,7 +441,7 @@
             {
               "name": "message",
               "type": "string",
-              "value": "CAFÉ LEX\nLitigantes y estudiantes bienvenidos."
+              "value": "CAFÉ LEX\nPrepara tu caso antes de debatir."
             }
           ],
           "rotation": 0,
@@ -479,7 +479,7 @@
             {
               "name": "message",
               "type": "string",
-              "value": "CONSEJO DE LITIGIO\nSi quieres evitar debates, aléjate de las zonas de conflicto."
+              "value": "CONSEJO DE LITIGIO\nHechos, norma, prueba y consecuencia."
             }
           ],
           "rotation": 0,
@@ -549,7 +549,7 @@
                 {
                   "name": "messages",
                   "type": "string",
-                  "value": "Lee los avisos: suelen esconder pistas útiles."
+                  "value": "Lee avisos y testimonios: todo caso esconde una pista útil."
                 },
                 {
                   "name": "movement_pattern",
@@ -663,7 +663,7 @@
                 {
                   "name": "messages",
                   "type": "string",
-                  "value": "Puedes guardar el expediente desde el menú.::Para abrir el menú, presiona ENTER."
+                  "value": "Guarda el expediente desde el menú.::Presiona ENTER para abrir la interfaz."
                 },
                 {
                   "name": "movement_pattern",

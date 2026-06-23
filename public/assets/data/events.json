@@ -24,9 +24,9 @@
         "data": {
           "id": 1001,
           "messages": [
-            "Todo jurista debe salir alguna vez del apunte seguro.",
-            "Respira. Lee los hechos. Ordena la norma.",
-            "El profesor civilista te espera junto a la Plaza de la Justicia."
+            "Todo caso empieza con una historia incompleta.",
+            "Tu tarea no es adivinar: investiga hechos, busca la norma y construye una respuesta.",
+            "El profesor civilista te espera en la Plaza de la Justicia."
           ]
         }
       },
@@ -77,8 +77,11 @@
           "id": 1002,
           "messages": [
             "¡Alto ahí!",
-            "Entrar a una zona de expedientes sin un concepto aliado es mala estrategia.",
-            "Toma a LEXIS. Te ayudará a leer, clasificar y responder."
+            "Antes de entrar a casos reales necesitas método.",
+            "Paso 1: hechos. ¿Qué ocurrió?",
+            "Paso 2: norma. ¿Qué regla aplica?",
+            "Paso 3: argumento. ¿Por qué esa regla resuelve esos hechos?",
+            "Toma a LEXIS. Te ayudará a ordenar ideas y detectar contradicciones."
           ]
         }
       },

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" shape-rendering="crispEdges">
+<defs>
+  <linearGradient id="night" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#06101f"/>
+    <stop offset="0.55" stop-color="#0b1726"/>
+    <stop offset="1" stop-color="#111a28"/>
+  </linearGradient>
+  <linearGradient id="court" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#2b1712"/>
+    <stop offset="1" stop-color="#5d341f"/>
+  </linearGradient>
+  <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffd36c" stop-opacity="0.45"/>
+    <stop offset="1" stop-color="#ffd36c" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+    <path d="M64 0H0V64" fill="none" stroke="#17283a" stroke-width="2" opacity="0.35"/>
+  </pattern>
+  
+</defs>
+
+    <circle cx="128" cy="128" r="112" fill="#081322" stroke="#f4b94a" stroke-width="6"/>
+    <rect x="62" y="58" width="132" height="136" fill="#f2e6c8" stroke="#8c5c2d" stroke-width="8" rx="10"/>
+    <circle cx="62" cy="72" r="20" fill="#d7b47a" stroke="#8c5c2d" stroke-width="6"/>
+    <circle cx="194" cy="180" r="20" fill="#d7b47a" stroke="#8c5c2d" stroke-width="6"/>
+    <line x1="88" y1="96" x2="168" y2="96" stroke="#5b3420" stroke-width="5" />
+    <line x1="88" y1="124" x2="168" y2="124" stroke="#5b3420" stroke-width="5" />
+    <line x1="88" y1="152" x2="142" y2="152" stroke="#5b3420" stroke-width="5" />
+    <circle cx="146" cy="164" r="20" fill="#e15c86" stroke="#5b1f2e" stroke-width="5"/>
+    <text x="128" y="238" fill="#f8f5e8" font-family="Georgia, serif" font-size="23" font-weight="700" letter-spacing="1" text-anchor="middle" font-family="Arial Black, Arial, sans-serif">CONTRACTUS</text>
+  
+</svg>

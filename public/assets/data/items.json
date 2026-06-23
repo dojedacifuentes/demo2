@@ -2,15 +2,15 @@
   {
     "id": 1,
     "name": "café procesal",
-    "description": "Restaura 30 HP a una criatura jurídica. Sabe a biblioteca abierta hasta tarde.",
-    "category": "HEAL",
-    "effect": "HEAL_30"
+    "effect": "HEAL_30",
+    "description": "Recupera 30 puntos de solidez. Útil antes de una audiencia difícil.",
+    "category": "HEAL"
   },
   {
     "id": 2,
     "name": "cédula de captura",
-    "description": "Permite incorporar una criatura jurídica debilitada al expediente del jugador.",
-    "category": "CAPTURE",
-    "effect": "CAPTURE_1"
+    "effect": "CAPTURE_1",
+    "description": "Abre expediente para incorporar una criatura jurídica a tu equipo.",
+    "category": "CAPTURE"
   }
 ]

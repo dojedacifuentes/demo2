@@ -19,7 +19,7 @@ import { DataUtils } from '../utils/data-utils.js';
 import { playBackgroundMusic, playSoundFx } from '../utils/audio-utils.js';
 import { weightedRandom } from '../utils/random.js';
 import { Item } from '../world/item.js';
-import { BATTLE_FLAG, ENCOUNTER_TILE_TYPE, GAME_EVENT_TYPE, ITEM_CATEGORY, NPC_EVENT_TYPE } from '../types/typedef.js';
+import { BATTLE_FLAG, ENCOUNTER_TILE_TYPE, GAME_EVENT_TYPE, GAME_FLAG, ITEM_CATEGORY, NPC_EVENT_TYPE } from '../types/typedef.js';
 import { exhaustiveGuard } from '../utils/guard.js';
 import { sleep } from '../utils/time-utils.js';
 import { CutsceneScene } from './cutscene-scene.js';
@@ -37,6 +37,49 @@ import {
   TILED_SIGN_PROPERTY,
 } from '../assets/tiled-keys.js';
 import { LEX_QUEST_COPY } from '../lex-quest/lex-quest-config.js';
+
+const AREA_COPY = Object.freeze({
+  main_1: {
+    default: 'Ciudad Lex',
+    home: 'Facultad de Derecho',
+    registry: 'Notaría y Registro',
+    plaza: 'Plaza de la Justicia',
+    commerce: 'Distrito Comercial',
+    tribunal: 'Tribunal Civil',
+    advanced: 'Callejón del Contrato',
+  },
+  building_1: {
+    default: 'Facultad de Derecho',
+  },
+  building_2: {
+    default: 'Notaría y Registro',
+  },
+  building_3: {
+    default: 'Tribunal Civil',
+  },
+  forest_1: {
+    default: 'Distritos y Calles',
+  },
+});
+
+const WORLD_BADGES = Object.freeze({
+  main_1: [
+    { x: 820, y: 4180, title: 'FACULTAD', subtitle: 'hechos + normas' },
+    { x: 1455, y: 4180, title: 'REGISTRO', subtitle: 'prueba documental' },
+    { x: 980, y: 3220, title: 'PLAZA', subtitle: 'misiones ciudadanas' },
+    { x: 1515, y: 1580, title: 'DISTRITO', subtitle: 'evidencias y casos' },
+    { x: 640, y: 1360, title: 'TRIBUNAL', subtitle: 'audiencias civiles' },
+    { x: 855, y: 235, title: 'NULIDADES', subtitle: 'riesgo avanzado' },
+  ],
+  forest_1: [
+    { x: 120, y: 80, title: 'BARRIO', subtitle: 'casos cotidianos' },
+    { x: 780, y: 80, title: 'COMERCIO', subtitle: 'contratos y consumo' },
+    { x: 760, y: 500, title: 'CONTRATO', subtitle: 'conflictos complejos' },
+  ],
+  building_1: [{ x: 110, y: 55, title: 'AULAS', subtitle: 'aprendizaje básico' }],
+  building_2: [{ x: 95, y: 55, title: 'PROTOCOLO', subtitle: 'documentos y fe pública' }],
+  building_3: [{ x: 115, y: 55, title: 'AUDIENCIA', subtitle: 'argumentación por turnos' }],
+});
 
 /**
  * @typedef WorldSceneData
@@ -99,6 +142,12 @@ export class WorldScene extends BaseScene {
   #cameraRegions;
   /** @type {{ [key: string]: Phaser.Tilemaps.Tilemap}} */
   #tiledLevelMaps;
+  /** @type {Phaser.GameObjects.Text | undefined} */
+  #hudAreaText;
+  /** @type {Phaser.GameObjects.Text | undefined} */
+  #hudObjectiveText;
+  /** @type {Phaser.GameObjects.Text | undefined} */
+  #hudConceptText;
 
   constructor() {
     super({
@@ -287,9 +336,11 @@ export class WorldScene extends BaseScene {
 
     // create foreground for depth
     this.add.image(0, 0, `${this.#sceneData.area.toUpperCase()}_FOREGROUND`, 0).setOrigin(0);
+    this.#createWorldBadges();
 
     // create menu
     this.#menu = new WorldMenu(this);
+    this.#createLearningHud();
 
     // create event zones
     this.#createEventEncounterZones(map);
@@ -327,13 +378,10 @@ export class WorldScene extends BaseScene {
    * @returns {void}
    */
   #showAreaLabel() {
-    if (this.#sceneData.isInterior) {
-      return;
-    }
-
     const container = this.add.container(24, 24).setScrollFactor(0).setDepth(1000);
-    const background = this.add.rectangle(0, 0, 300, 54, 0x111827, 0.82).setOrigin(0);
-    const label = this.add.text(16, 12, LEX_QUEST_COPY.initialZone, {
+    const areaName = this.#getCurrentAreaName();
+    const background = this.add.rectangle(0, 0, Math.max(300, areaName.length * 16), 54, 0x111827, 0.84).setOrigin(0);
+    const label = this.add.text(16, 12, areaName, {
       fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
       color: '#f8f5e8',
       fontSize: '24px',
@@ -349,6 +397,144 @@ export class WorldScene extends BaseScene {
         container.destroy();
       },
     });
+  }
+
+  /**
+   * @returns {void}
+   */
+  #createWorldBadges() {
+    const badges = WORLD_BADGES[this.#sceneData.area] || [];
+    badges.forEach((badge) => {
+      const container = this.add.container(badge.x, badge.y).setDepth(40);
+      const background = this.add.rectangle(0, 0, 250, 74, 0x091422, 0.88).setOrigin(0).setStrokeStyle(3, 0x33d8ff, 1);
+      const title = this.add.text(14, 10, badge.title, {
+        fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+        color: '#f8f5e8',
+        fontSize: '26px',
+      });
+      const subtitle = this.add.text(14, 42, badge.subtitle, {
+        fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+        color: '#33d8ff',
+        fontSize: '20px',
+      });
+      container.add([background, title, subtitle]);
+    });
+  }
+
+  /**
+   * @returns {void}
+   */
+  #createLearningHud() {
+    const container = this.add.container(24, 84).setScrollFactor(0).setDepth(1000);
+    const background = this.add.rectangle(0, 0, 420, 128, 0x081322, 0.86).setOrigin(0).setStrokeStyle(3, 0xf4b94a, 1);
+    const eyebrow = this.add.text(16, 10, 'RUTA DE APRENDIZAJE', {
+      fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+      color: '#f4b94a',
+      fontSize: '18px',
+    });
+    this.#hudAreaText = this.add.text(16, 34, '', {
+      fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+      color: '#f8f5e8',
+      fontSize: '24px',
+    });
+    this.#hudConceptText = this.add.text(16, 66, '', {
+      fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+      color: '#33d8ff',
+      fontSize: '20px',
+    });
+    this.#hudObjectiveText = this.add.text(16, 92, '', {
+      fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
+      color: '#d9e2f1',
+      fontSize: '18px',
+      wordWrap: { width: 388 },
+    });
+
+    container.add([background, eyebrow, this.#hudAreaText, this.#hudConceptText, this.#hudObjectiveText]);
+    this.#updateLearningHud();
+  }
+
+  /**
+   * @returns {void}
+   */
+  #updateLearningHud() {
+    if (!this.#hudAreaText || !this.#hudObjectiveText || !this.#hudConceptText) {
+      return;
+    }
+
+    const learningState = this.#getLearningState();
+    this.#hudAreaText.setText(this.#getCurrentAreaName());
+    this.#hudConceptText.setText(learningState.concept);
+    this.#hudObjectiveText.setText(learningState.objective);
+  }
+
+  /**
+   * @returns {{concept: string, objective: string}}
+   */
+  #getLearningState() {
+    const flags = dataManager.getFlags();
+    const defeatedNpcs = dataManager.getDefeatedNpcs();
+
+    if (!flags.has(GAME_FLAG.LOOKING_FOR_PROFESSOR) && !flags.has(GAME_FLAG.FOUND_PROFESSOR)) {
+      return {
+        concept: 'Tema: hechos, norma y pregunta jurídica',
+        objective: 'Sal de casa y escucha el primer encargo.',
+      };
+    }
+
+    if (flags.has(GAME_FLAG.LOOKING_FOR_PROFESSOR)) {
+      return {
+        concept: 'Tema: identificar el problema del caso',
+        objective: 'Busca al profesor civilista en la Plaza.',
+      };
+    }
+
+    if (defeatedNpcs.size < 1) {
+      return {
+        concept: 'Tema: carga de la prueba',
+        objective: 'Habla con ciudadanos y gana una primera audiencia.',
+      };
+    }
+
+    if (defeatedNpcs.size < 3) {
+      return {
+        concept: 'Tema: contratos, propiedad y buena fe',
+        objective: 'Reúne evidencias en el distrito y practica refutación.',
+      };
+    }
+
+    return {
+      concept: 'Tema: plazos, nulidades y vicios ocultos',
+      objective: 'Avanza hacia casos complejos en Distritos y Calles.',
+    };
+  }
+
+  /**
+   * @returns {string}
+   */
+  #getCurrentAreaName() {
+    const copy = AREA_COPY[this.#sceneData.area];
+    if (!copy) {
+      return LEX_QUEST_COPY.initialZone;
+    }
+
+    if (this.#sceneData.area !== 'main_1' || !this.#player) {
+      return copy.default;
+    }
+
+    const { x, y } = this.#player.sprite;
+    if (y > 4180) {
+      return x < 1280 ? copy.home : copy.registry;
+    }
+    if (y > 3000) {
+      return copy.plaza;
+    }
+    if (y > 2240) {
+      return copy.commerce;
+    }
+    if (y > 1120) {
+      return copy.tribunal;
+    }
+    return copy.advanced;
   }
 
   /**
@@ -469,6 +655,7 @@ export class WorldScene extends BaseScene {
 
     if (this.#dialogUi.isVisible && !this.#dialogUi.moreMessagesToShow) {
       this.#dialogUi.hideDialogModal();
+      this.#updateLearningHud();
       if (this.#currentCutSceneId !== undefined) {
         this.#isProcessingCutSceneEvent = false;
         this.#handleCutSceneInteraction();
@@ -541,7 +728,7 @@ export class WorldScene extends BaseScene {
       nearbyItem.gameObject.destroy();
       this.#items.splice(nearbyItemIndex, 1);
       dataManager.addItemPickedUp(nearbyItem.id);
-    this.#dialogUi.showDialogModal([`Encontraste: ${item.name}`]);
+      this.#dialogUi.showDialogModal([`Encontraste: ${item.name}`]);
     }
   }
 
@@ -557,6 +744,7 @@ export class WorldScene extends BaseScene {
 
     // update camera bounds for given level after player moves
     CameraUtils.updateMainCameraBounds(this, this.#player.sprite, this.#cameraRegions);
+    this.#updateLearningHud();
 
     // check to see if the player encountered cut scene zone
     this.#player.sprite.getBounds(this.#rectangleForOverlapCheck1);

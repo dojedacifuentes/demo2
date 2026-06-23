@@ -221,10 +221,10 @@ export class BattleMonster {
     });
     this._setMonsterLevelText();
 
-    const monsterHpText = this._scene.add.text(30, 55, 'HP', {
+    const monsterHpText = this._scene.add.text(30, 55, 'SOLIDEZ', {
       fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
       color: '#FF6505',
-      fontSize: '24px',
+      fontSize: '18px',
       fontStyle: 'italic',
     });
 

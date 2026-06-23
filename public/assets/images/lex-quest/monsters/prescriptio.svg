@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" shape-rendering="crispEdges">
+<defs>
+  <linearGradient id="night" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#06101f"/>
+    <stop offset="0.55" stop-color="#0b1726"/>
+    <stop offset="1" stop-color="#111a28"/>
+  </linearGradient>
+  <linearGradient id="court" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#2b1712"/>
+    <stop offset="1" stop-color="#5d341f"/>
+  </linearGradient>
+  <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffd36c" stop-opacity="0.45"/>
+    <stop offset="1" stop-color="#ffd36c" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+    <path d="M64 0H0V64" fill="none" stroke="#17283a" stroke-width="2" opacity="0.35"/>
+  </pattern>
+  
+</defs>
+
+    <circle cx="128" cy="128" r="112" fill="#081322" stroke="#f4b94a" stroke-width="6"/>
+    <rect x="70" y="54" width="116" height="24" fill="#f4b94a" stroke="#5c3b12" stroke-width="5"/>
+    <rect x="84" y="178" width="88" height="26" fill="#f4b94a" stroke="#5c3b12" stroke-width="5"/>
+    <path d="M88 80 Q128 120 168 80 L168 178 Q128 138 88 178 Z" fill="#18344d" stroke="#f2e6c8" stroke-width="8"/>
+    <path d="M104 96 Q128 118 152 96" fill="none" stroke="#33d8ff" stroke-width="8"/>
+    <path d="M104 162 Q128 140 152 162" fill="none" stroke="#33d8ff" stroke-width="8"/>
+    <text x="128" y="238" fill="#f8f5e8" font-family="Georgia, serif" font-size="23" font-weight="700" letter-spacing="1" text-anchor="middle" font-family="Arial Black, Arial, sans-serif">PRESCRIPTIO</text>
+  
+</svg>

@@ -292,10 +292,10 @@ export class MonsterPartyScene extends BaseScene {
     });
     this.#healthBars.push(healthBar);
 
-    const monsterHpText = this.add.text(164, 66, 'HP', {
+    const monsterHpText = this.add.text(164, 66, 'SOLIDEZ', {
       fontFamily: KENNEY_FUTURE_NARROW_FONT_NAME,
       color: '#FF6505',
-      fontSize: '24px',
+      fontSize: '18px',
       fontStyle: 'italic',
     });
 

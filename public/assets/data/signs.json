@@ -1,29 +1,29 @@
 {
   "1": {
-    "message": "CONSEJO DE LITIGIO\nSi no quieres encuentros, evita las zonas de expedientes inestables."
+    "message": "CONSEJO DE LITIGIO\nUn caso se lee así: hechos, norma, prueba y consecuencia."
   },
   "2": {
-    "message": "CAFÉ LEX\nEstudiantes, profesores y litigantes son bienvenidos."
+    "message": "CAFÉ LEX\nRecupera energía antes de audiencias. La preparación también gana casos."
   },
   "3": {
-    "message": "AVISO\nPara confusión doctrinal, consulta una norma clara antes de argumentar."
+    "message": "AVISO\nSi tu argumento no responde al problema jurídico, parece fuerte pero no sirve."
   },
   "4": {
-    "message": "No salgas sin revisar el mapa de Ciudad Lex."
+    "message": "MAPA DE CIUDAD LEX\nFacultad: aprende. Plaza: investiga. Tribunal: argumenta. Distritos: aplica."
   },
   "5": {
-    "message": "Atención\nAlgunos litigantes impugnarán tu tesis apenas te vean."
+    "message": "ATENCIÓN\nAlgunos litigantes iniciarán audiencia apenas te vean. Revisa tus criaturas."
   },
   "6": {
-    "message": "Bienvenido a Ciudad Lex."
+    "message": "PLAZA DE LA JUSTICIA\nAquí nacen los casos ciudadanos. Escucha antes de concluir."
   },
   "7": {
-    "message": "Nuevas evidencias disponibles en la tienda."
+    "message": "EVIDENCIAS\nDocumentos, objetos y testimonios no valen por cantidad, sino por pertinencia."
   },
   "8": {
-    "message": "Biblioteca jurídica\nDescanso autorizado."
+    "message": "BIBLIOTECA JURÍDICA\nDescanso autorizado. Define conceptos con ejemplos simples."
   },
   "9": {
-    "message": "Bosque de nulidades"
+    "message": "BOSQUE DE NULIDADES\nZona avanzada. No todo error anula un acto: busca regla infringida y perjuicio."
   }
 }

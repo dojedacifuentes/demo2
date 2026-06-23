@@ -1,20 +1,26 @@
 {
   "1": {
     "frame": 30,
-    "animationKeyPrefix": "NPC_1",
+    "animationKeyPrefix": "NPC_4",
     "events": [
       {
         "requires": ["LOOKING_FOR_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["El profesor civilista de la sala contigua te estaba buscando."]
+          "messages": [
+            "El profesor civilista te espera afuera.",
+            "Primera regla: separa hechos, problema jurídico y norma aplicable."
+          ]
         }
       },
       {
         "requires": ["FOUND_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Descansa un momento. Ningún argumento sobrevive sin café y método."]
+          "messages": [
+            "Descansa aquí cuando pierdas claridad.",
+            "Un buen argumento no grita: ordena hechos, prueba y consecuencia."
+          ]
         }
       },
       {
@@ -35,7 +41,7 @@
         "requires": ["FOUND_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Mucho mejor. Tus conceptos jurídicos vuelven a estar en forma."]
+          "messages": ["Tus conceptos jurídicos recuperaron solidez argumentativa."]
         }
       }
     ]
@@ -48,14 +54,20 @@
         "requires": ["LOOKING_FOR_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Vi al profesor salir hacia la Plaza de la Justicia. Llevaba un expediente raro."]
+          "messages": [
+            "Vi al profesor en la Plaza de la Justicia.",
+            "Decía que la ley no se memoriza: se usa para resolver problemas concretos."
+          ]
         }
       },
       {
         "requires": ["FOUND_PROFESSOR"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Lee los carteles. En Ciudad Lex, hasta la señalética tiene doctrina."]
+          "messages": [
+            "Hecho no es lo mismo que prueba.",
+            "El hecho es lo que afirmas. La prueba es lo que convence al juez."
+          ]
         }
       }
     ]
@@ -68,7 +80,10 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Puedes guardar el expediente desde el menú.", "Presiona ENTER para abrir la interfaz."]
+          "messages": [
+            "Puedes guardar el expediente desde el menú.",
+            "Presiona ENTER para abrir la interfaz."
+          ]
         }
       }
     ]
@@ -81,7 +96,10 @@
         "requires": ["TRAINER_NOT_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["¡Objeción! Demuestra que puedes sostener tu tesis."]
+          "messages": [
+            "Soy fiscal de práctica.",
+            "Si afirmas un hecho, debes sostenerlo con prueba. Esa es la carga de la prueba."
+          ]
         }
       },
       {
@@ -90,15 +108,20 @@
         "data": {
           "monsters": [7],
           "assetKey": "TRAINER_YOUTH_GIRL",
-          "trainerName": "Fiscal novel",
-          "trainerLostMessages": ["Bien argumentado. Retiro mi objeción."]
+          "trainerName": "Fiscal de práctica",
+          "trainerLostMessages": [
+            "Bien. Presentaste hechos y prueba sin mezclar conclusiones."
+          ]
         }
       },
       {
         "requires": ["TRAINER_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Ese contraexamen fue impecable."]
+          "messages": [
+            "Recuerda: quien alega, normalmente debe probar.",
+            "Sin prueba, un relato atractivo sigue siendo débil."
+          ]
         }
       }
     ]
@@ -111,7 +134,10 @@
         "requires": ["TRAINER_NOT_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Traigo un caso breve. Veamos si detectas la institución correcta."]
+          "messages": [
+            "Traigo un contrato simple.",
+            "Busca oferta, aceptación y obligación. Si falta una pieza, el caso cambia."
+          ]
         }
       },
       {
@@ -120,28 +146,36 @@
         "data": {
           "monsters": [6],
           "assetKey": "TRAINER_YOUTH_BOY",
-          "trainerName": "Litigante joven",
-          "trainerLostMessages": ["Tienes una teoría del caso bastante afilada."]
+          "trainerName": "Litigante de contratos",
+          "trainerLostMessages": [
+            "Detectaste el plazo antes de discutir el fondo. Buena estrategia."
+          ]
         }
       },
       {
         "requires": ["TRAINER_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Tendré que estudiar mejor la carga de la prueba."]
+          "messages": [
+            "Contrato no es solo papel.",
+            "Es acuerdo, obligación y consecuencias si alguien incumple."
+          ]
         }
       }
     ]
   },
   "6": {
     "frame": 60,
-    "animationKeyPrefix": "NPC_7",
+    "animationKeyPrefix": "NPC_6",
     "events": [
       {
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Antes de litigar, compra café procesal y cédulas de captura."]
+          "messages": [
+            "En Café Lex venden café procesal y cédulas de captura.",
+            "Usa objetos antes de audiencias difíciles; preparar también es jugar bien."
+          ]
         }
       }
     ]
@@ -154,7 +188,10 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["No entres sin preparar tu argumento. El bosque de nulidades no perdona."]
+          "messages": [
+            "La nulidad no es un comodín.",
+            "Primero pregunta: ¿qué acto falló, qué regla se infringió y qué perjuicio produjo?"
+          ]
         }
       }
     ]
@@ -167,7 +204,10 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Revisa tus conceptos antes de salir: una mala premisa arruina todo el caso."]
+          "messages": [
+            "Soy detective privado.",
+            "Una evidencia útil responde a una pregunta precisa; lo demás solo llena la mochila."
+          ]
         }
       }
     ]
@@ -180,24 +220,32 @@
         "requires": ["TRAINER_NOT_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Tengo dos argumentos acumulados. Contesta con precisión."]
+          "messages": [
+            "Caso avanzado: compraron un computador que parecía perfecto.",
+            "A los tres días apareció una falla que no era visible. Eso puede ser vicio oculto."
+          ]
         }
       },
       {
         "requires": ["TRAINER_NOT_DEFEATED"],
         "type": "BATTLE",
         "data": {
-          "monsters": [6, 7],
+          "monsters": [8, 6],
           "assetKey": "TRAINER_YOUTH_BOY",
-          "trainerName": "Abogado litigante",
-          "trainerLostMessages": ["Necesito practicar más la réplica."]
+          "trainerName": "Abogada de consumo",
+          "trainerLostMessages": [
+            "Buena teoría: hecho oculto, defecto relevante y plazo para reclamar."
+          ]
         }
       },
       {
         "requires": ["TRAINER_DEFEATED"],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Volveré con jurisprudencia y mejores preguntas."]
+          "messages": [
+            "En los casos complejos importa el orden.",
+            "Primero califica la institución jurídica. Después eliges prueba y remedio."
+          ]
         }
       }
     ]
@@ -210,7 +258,10 @@
         "requires": [],
         "type": "MESSAGE",
         "data": {
-          "messages": ["Puedes descansar aquí. La biblioteca también cura el desgaste mental."]
+          "messages": [
+            "Biblioteca jurídica: descanso autorizado.",
+            "Consejo de estudio: define el concepto en una frase antes de memorizar detalles."
+          ]
         }
       },
       {

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="576" viewBox="0 0 1024 576" shape-rendering="crispEdges">
+<defs>
+  <linearGradient id="night" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#06101f"/>
+    <stop offset="0.55" stop-color="#0b1726"/>
+    <stop offset="1" stop-color="#111a28"/>
+  </linearGradient>
+  <linearGradient id="court" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#2b1712"/>
+    <stop offset="1" stop-color="#5d341f"/>
+  </linearGradient>
+  <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffd36c" stop-opacity="0.45"/>
+    <stop offset="1" stop-color="#ffd36c" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+    <path d="M64 0H0V64" fill="none" stroke="#17283a" stroke-width="2" opacity="0.35"/>
+  </pattern>
+  
+</defs>
+
+    <rect x="0" y="0" width="1024" height="576" fill="#101827" />
+    <rect x="0" y="0" width="1024" height="350" fill="url(#court)" />
+    <rect x="0" y="350" width="1024" height="226" fill="#1c2432" />
+    <rect x="70" y="86" width="884" height="88" fill="#17100d" stroke="#f4b94a" stroke-width="5"/>
+    <text x="512" y="142" fill="#f8f5e8" font-family="Georgia, serif" font-size="42" font-weight="700" letter-spacing="1" text-anchor="middle" font-family="Arial Black, Arial, sans-serif">SALA DE AUDIENCIAS</text>
+    <rect x="355" y="178" width="314" height="128" fill="#3d2417" stroke="#f4b94a" stroke-width="6"/>
+    <text x="512" y="254" fill="#33d8ff" font-family="Georgia, serif" font-size="56" font-weight="700" letter-spacing="1" text-anchor="middle" font-family="Arial Black, Arial, sans-serif">VS</text>
+    <rect x="70" y="354" width="316" height="82" fill="#263246" stroke="#33d8ff" stroke-width="5"/>
+    <rect x="642" y="180" width="316" height="82" fill="#462631" stroke="#e15c86" stroke-width="5"/>
+    <text x="230" y="408" fill="#f8f5e8" font-family="Georgia, serif" font-size="30" font-weight="700" letter-spacing="1" text-anchor="middle" font-family="Arial Black, Arial, sans-serif">TU ARGUMENTO</text>
+    <text x="800" y="234" fill="#f8f5e8" font-family="Georgia, serif" font-size="30" font-weight="700" letter-spacing="1" text-anchor="middle" font-family="Arial Black, Arial, sans-serif">CONTRAPARTE</text>
+    <line x1="0" y1="350" x2="1024" y2="350" stroke="#f4b94a" stroke-width="6" />
+  
+</svg>

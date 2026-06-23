@@ -10,5 +10,17 @@
     "name": "Invocar norma",
     "animationName": "SLASH",
     "audioKey": "CLAW"
+  },
+  {
+    "id": 3,
+    "name": "Argumentar hechos",
+    "animationName": "SLASH",
+    "audioKey": "CLAW"
+  },
+  {
+    "id": 4,
+    "name": "Refutar",
+    "animationName": "ICE_SHARD",
+    "audioKey": "ICE"
   }
 ]

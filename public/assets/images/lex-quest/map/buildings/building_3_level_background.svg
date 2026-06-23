@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="832" height="576" viewBox="0 0 832 576" shape-rendering="crispEdges">
+<defs>
+  <linearGradient id="night" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#06101f"/>
+    <stop offset="0.55" stop-color="#0b1726"/>
+    <stop offset="1" stop-color="#111a28"/>
+  </linearGradient>
+  <linearGradient id="court" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="0" stop-color="#2b1712"/>
+    <stop offset="1" stop-color="#5d341f"/>
+  </linearGradient>
+  <radialGradient id="lampGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffd36c" stop-opacity="0.45"/>
+    <stop offset="1" stop-color="#ffd36c" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+    <path d="M64 0H0V64" fill="none" stroke="#17283a" stroke-width="2" opacity="0.35"/>
+  </pattern>
+  
+</defs>
+
+    <rect x="0" y="0" width="832" height="576" fill="#111927" />
+    <rect x="24" y="24" width="784" height="528" fill="#2d1d18" stroke="#e58b32" stroke-width="8"/>
+    <rect x="64" y="60" width="704" height="92" fill="#0a1220" stroke="#e58b32" stroke-width="5"/>
+    <text x="416" y="114" fill="#f8f5e8" font-family="Georgia, serif" font-size="42" font-weight="700" letter-spacing="1" text-anchor="middle" font-family="Arial Black, Arial, sans-serif">TRIBUNAL CIVIL</text>
+    <text x="416" y="146" fill="#33d8ff" font-family="Georgia, serif" font-size="22" font-weight="700" letter-spacing="1" text-anchor="middle" font-family="Arial, sans-serif" font-weight="500">donde se decide la verdad del expediente</text>
+    <rect x="84" y="210" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="102" y="192" width="74" height="16" fill="#1d2431" /><rect x="256" y="210" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="274" y="192" width="74" height="16" fill="#1d2431" /><rect x="428" y="210" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="446" y="192" width="74" height="16" fill="#1d2431" /><rect x="600" y="210" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="618" y="192" width="74" height="16" fill="#1d2431" /><rect x="84" y="300" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="102" y="282" width="74" height="16" fill="#1d2431" /><rect x="256" y="300" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="274" y="282" width="74" height="16" fill="#1d2431" /><rect x="428" y="300" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="446" y="282" width="74" height="16" fill="#1d2431" /><rect x="600" y="300" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="618" y="282" width="74" height="16" fill="#1d2431" /><rect x="84" y="390" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="102" y="372" width="74" height="16" fill="#1d2431" /><rect x="256" y="390" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="274" y="372" width="74" height="16" fill="#1d2431" /><rect x="428" y="390" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="446" y="372" width="74" height="16" fill="#1d2431" /><rect x="600" y="390" width="110" height="50" fill="#4a2b1b" stroke="#170d08" stroke-width="4"/><rect x="618" y="372" width="74" height="16" fill="#1d2431" />
+    <rect x="320" y="456" width="192" height="70" fill="#2d1a12" stroke="#e58b32" stroke-width="5"/>
+    <rect x="382" y="526" width="68" height="50" fill="#111927" stroke="#e58b32" stroke-width="4"/>
+  
+</svg>

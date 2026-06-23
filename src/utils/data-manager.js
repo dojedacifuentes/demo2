@@ -6,7 +6,7 @@ import { exhaustiveGuard } from './guard.js';
 import { DataUtils } from './data-utils.js';
 import { GAME_FLAG } from '../types/typedef.js';
 
-const LOCAL_STORAGE_KEY = 'LEX_QUEST_DATA_V1';
+const LOCAL_STORAGE_KEY = 'LEX_QUEST_DATA_V2';
 
 /**
  * @typedef PlayerLocation
