@@ -1,6 +1,7 @@
 import { KENNEY_FUTURE_NARROW_FONT_NAME } from '../../assets/font-keys.js';
 import { ExpBar } from '../../common/exp-bar.js';
 import { calculateExpBarCurrentValue, handleMonsterGainingExperience } from '../../utils/leveling-utils.js';
+import { BATTLE_TIMING } from '../../config.js';
 import { BattleMonster } from './battle-monster.js';
 
 /** @type {import('../../types/typedef').Coordinate} */
@@ -72,7 +73,7 @@ export class PlayerBattleMonster extends BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 800,
+      duration: BATTLE_TIMING.PLAYER_APPEAR_DURATION_MS,
       x: {
         from: startXPos,
         start: startXPos,
@@ -103,7 +104,7 @@ export class PlayerBattleMonster extends BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 800,
+      duration: BATTLE_TIMING.PLAYER_HEALTH_APPEAR_DURATION_MS,
       x: {
         from: startXPos,
         start: startXPos,
@@ -135,7 +136,7 @@ export class PlayerBattleMonster extends BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 2000,
+      duration: BATTLE_TIMING.FAINT_DURATION_MS,
       y: {
         from: startYPos,
         start: startYPos,
@@ -149,7 +150,7 @@ export class PlayerBattleMonster extends BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 2000,
+      duration: BATTLE_TIMING.FAINT_DURATION_MS,
       x: {
         from: this._phaserHealthBarGameContainer.x,
         start: this._phaserHealthBarGameContainer.x,
@@ -230,7 +231,7 @@ export class PlayerBattleMonster extends BattleMonster {
     if (leveledUp) {
       this.#expBar.setMeterPercentageAnimated(1, {
         callback: () => {
-          this._scene.time.delayedCall(500, () => {
+          this._scene.time.delayedCall(BATTLE_TIMING.EXP_LEVEL_PAUSE_MS, () => {
             this.#expBar.setMeterPercentageAnimated(0, { skipBattleAnimations: true });
             this.#expBar.setMeterPercentageAnimated(
               calculateExpBarCurrentValue(this._monsterDetails.currentLevel, this._monsterDetails.currentExp),

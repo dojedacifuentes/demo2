@@ -1,4 +1,5 @@
 import Phaser from '../lib/phaser.js';
+import { BATTLE_TIMING } from '../config.js';
 
 /**
  * @param {Phaser.Scene} scene
@@ -25,8 +26,8 @@ export function createSceneTransition(scene, options) {
     onUpdate: () => {
       g.clear().fillRectShape(rectShape);
     },
-    delay: 400,
-    duration: 800,
+    delay: BATTLE_TIMING.QUICK_PAUSE_MS,
+    duration: BATTLE_TIMING.SCENE_FADE_MS,
     height: {
       ease: Phaser.Math.Easing.Expo.InOut,
       from: 0,

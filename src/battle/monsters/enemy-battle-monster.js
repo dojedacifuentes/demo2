@@ -1,4 +1,5 @@
 import { BattleMonster } from './battle-monster.js';
+import { BATTLE_TIMING } from '../../config.js';
 
 /** @type {import('../../types/typedef.js').Coordinate} */
 const ENEMY_POSITION = Object.freeze({
@@ -37,7 +38,7 @@ export class EnemyBattleMonster extends BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 1600,
+      duration: BATTLE_TIMING.MONSTER_APPEAR_DURATION_MS,
       x: {
         from: startXPos,
         start: startXPos,
@@ -68,7 +69,7 @@ export class EnemyBattleMonster extends BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 1500,
+      duration: BATTLE_TIMING.MONSTER_HEALTH_APPEAR_DURATION_MS,
       x: {
         from: startXPos,
         start: startXPos,
@@ -100,7 +101,7 @@ export class EnemyBattleMonster extends BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 2000,
+      duration: BATTLE_TIMING.FAINT_DURATION_MS,
       y: {
         from: startYPos,
         start: startYPos,
@@ -114,7 +115,7 @@ export class EnemyBattleMonster extends BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 2000,
+      duration: BATTLE_TIMING.FAINT_DURATION_MS,
       x: {
         from: this._phaserHealthBarGameContainer.x,
         start: this._phaserHealthBarGameContainer.x,
@@ -147,7 +148,7 @@ export class EnemyBattleMonster extends BattleMonster {
       }
 
       this._scene.tweens.add({
-        duration: 500,
+        duration: BATTLE_TIMING.QUICK_PAUSE_MS,
         targets: this._phaserGameObject,
         alpha: {
           from: 1,
@@ -174,7 +175,7 @@ export class EnemyBattleMonster extends BattleMonster {
       }
 
       this._scene.tweens.add({
-        duration: 500,
+        duration: BATTLE_TIMING.QUICK_PAUSE_MS,
         targets: this._phaserGameObject,
         alpha: {
           from: 0,

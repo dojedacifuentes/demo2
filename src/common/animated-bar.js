@@ -1,4 +1,5 @@
 import Phaser from '../lib/phaser.js';
+import { BATTLE_TIMING } from '../config.js';
 
 /**
  * @typedef AnimatedBarConfig
@@ -160,7 +161,8 @@ export class AnimatedBar {
     this._scene.tweens.add({
       targets: this._middle,
       displayWidth: width,
-      duration: options?.duration || options?.duration === 0 ? 0 : 1000,
+      duration:
+        options?.duration || options?.duration === 0 ? options.duration : BATTLE_TIMING.HEALTH_BAR_DURATION_MS,
       ease: Phaser.Math.Easing.Sine.Out,
       onUpdate: () => {
         this._updateBarGameObjects();

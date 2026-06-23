@@ -37,7 +37,7 @@
   },
   {
     "key": "ICE_SHARD_START",
-    "frameRate": 8,
+    "frameRate": 14,
     "repeat": 0,
     "delay": 0,
     "yoyo": false,
@@ -45,7 +45,7 @@
   },
   {
     "key": "ICE_SHARD",
-    "frameRate": 8,
+    "frameRate": 14,
     "repeat": 0,
     "delay": 0,
     "yoyo": false,
@@ -53,7 +53,7 @@
   },
   {
     "key": "SLASH",
-    "frameRate": 4,
+    "frameRate": 14,
     "repeat": 0,
     "delay": 0,
     "yoyo": false,

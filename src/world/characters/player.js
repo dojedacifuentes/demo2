@@ -3,7 +3,7 @@ import { DIRECTION } from '../../common/direction.js';
 import { exhaustiveGuard } from '../../utils/guard.js';
 import { Character } from './character.js';
 import { getTargetPositionFromGameObjectPositionAndDirection } from '../../utils/grid-utils.js';
-import { TILE_SIZE } from '../../config.js';
+import { MOVEMENT_SPEED, TILE_SIZE } from '../../config.js';
 
 /**
  * @typedef PlayerConfigProps
@@ -62,7 +62,9 @@ export class Player extends Character {
         ) {
           this._phaserGameObject.play(`PLAYER_${this._direction}`);
         }
-        this._phaserGameObject.anims.timeScale = this._isRunning ? 2 : 1;
+        this._phaserGameObject.anims.timeScale = this._isRunning
+          ? MOVEMENT_SPEED.RUN_ANIMATION_TIME_SCALE
+          : MOVEMENT_SPEED.WALK_ANIMATION_TIME_SCALE;
         break;
       case DIRECTION.NONE:
         break;

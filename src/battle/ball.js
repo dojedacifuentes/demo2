@@ -1,4 +1,5 @@
 import Phaser from '../lib/phaser.js';
+import { BATTLE_TIMING } from '../config.js';
 
 /**
  * @typedef BallConfig
@@ -101,7 +102,7 @@ export class Ball {
       this.#ball.setAlpha(1);
       this.#ball.startFollow({
         delay: 0,
-        duration: 1000,
+        duration: BATTLE_TIMING.BALL_THROW_DURATION_MS,
         ease: Phaser.Math.Easing.Sine.InOut,
         onComplete: () => {
           resolve();
@@ -122,14 +123,14 @@ export class Ball {
       }
 
       this.#scene.tweens.add({
-        duration: 150,
-        repeatDelay: 800,
+        duration: BATTLE_TIMING.BALL_SHAKE_DURATION_MS,
+        repeatDelay: BATTLE_TIMING.BALL_SHAKE_REPEAT_DELAY_MS,
         targets: this.#ball,
         x: this.#ball.x + 10,
         y: this.#ball.y + 0,
         yoyo: true,
         repeat,
-        delay: 200,
+        delay: BATTLE_TIMING.BALL_SHAKE_DELAY_MS,
         ease: Phaser.Math.Easing.Sine.InOut,
         onComplete: () => {
           resolve();

@@ -1,5 +1,6 @@
 import Phaser from '../../lib/phaser.js';
 import { DIRECTION } from '../../common/direction.js';
+import { MOVEMENT_SPEED } from '../../config.js';
 import { getTargetPositionFromGameObjectPositionAndDirection } from '../../utils/grid-utils.js';
 import { exhaustiveGuard } from '../../utils/guard.js';
 
@@ -224,7 +225,7 @@ export class Character {
 
     this._scene.add.tween({
       delay: 0,
-      duration: this._isRunning ? 300 : 600,
+      duration: this._isRunning ? MOVEMENT_SPEED.RUN_STEP_DURATION_MS : MOVEMENT_SPEED.WALK_STEP_DURATION_MS,
       y: {
         from: this._phaserGameObject.y,
         start: this._phaserGameObject.y,

@@ -1,3 +1,5 @@
+import { BATTLE_TIMING } from '../config.js';
+
 /** @type {import('../types/typedef.js').Coordinate} */
 const ENEMY_POSITION = Object.freeze({
   x: 768,
@@ -43,7 +45,7 @@ export class EnemyBattleNpc {
 
       this.#scene.tweens.add({
         delay: 0,
-        duration: 1600,
+        duration: BATTLE_TIMING.NPC_APPEAR_DURATION_MS,
         x: {
           from: startXPos,
           start: startXPos,

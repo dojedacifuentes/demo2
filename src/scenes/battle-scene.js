@@ -22,6 +22,7 @@ import { sleep } from '../utils/time-utils.js';
 import { generateUuid } from '../utils/random.js';
 import { calculateMonsterCaptureResults } from '../utils/catch-utils.js';
 import { EnemyBattleNpc } from '../battle/enemy-battle-npc.js';
+import { BATTLE_TIMING } from '../config.js';
 
 const BATTLE_STATES = Object.freeze({
   INTRO: 'INTRO',
@@ -302,8 +303,8 @@ export class BattleScene extends BaseScene {
       () => {
         // play attack animation based on the selected attack
         // when attack is finished, play damage animation and then update health bar
-        this.time.delayedCall(500, () => {
-          this.time.delayedCall(100, () => {
+        this.time.delayedCall(BATTLE_TIMING.ATTACK_WINDUP_MS, () => {
+          this.time.delayedCall(BATTLE_TIMING.ATTACK_SOUND_DELAY_MS, () => {
             playSoundFx(this, this.#activePlayerMonster.attacks[this.#activePlayerAttackIndex].audioKey);
           });
           this.#attackManager.playAttackAnimation(
@@ -339,8 +340,8 @@ export class BattleScene extends BaseScene {
       () => {
         // play attack animation based on the selected attack
         // when attack is finished, play damage animation and then update health bar
-        this.time.delayedCall(500, () => {
-          this.time.delayedCall(100, () => {
+        this.time.delayedCall(BATTLE_TIMING.ATTACK_WINDUP_MS, () => {
+          this.time.delayedCall(BATTLE_TIMING.ATTACK_SOUND_DELAY_MS, () => {
             playSoundFx(this, this.#activeEnemyMonster.attacks[this.#activeEnemyAttackIndex].audioKey);
           });
           this.#attackManager.playAttackAnimation(
@@ -451,7 +452,7 @@ export class BattleScene extends BaseScene {
     const sceneDataToPass = {
       isPlayerKnockedOut: this.#playerKnockedOut,
     };
-    this.cameras.main.fadeOut(600, 0, 0, 0);
+    this.cameras.main.fadeOut(BATTLE_TIMING.SCENE_FADE_MS, 0, 0, 0);
     this.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, () => {
       this.scene.start(SCENE_KEYS.WORLD_SCENE, sceneDataToPass);
     });
@@ -547,7 +548,7 @@ export class BattleScene extends BaseScene {
           });
           this.#battleMenu.updateInfoPaneMessageNoInputRequired(`go ${this.#activePlayerMonster.name}!`, () => {
             // wait for text animation to complete and move to next state
-            this.time.delayedCall(1200, () => {
+            this.time.delayedCall(BATTLE_TIMING.SEND_OUT_DELAY_MS, () => {
               if (this.#switchingActiveMonster && !this.#activeMonsterKnockedOut) {
                 this.#battleStateMachine.setState(BATTLE_STATES.ENEMY_INPUT);
                 return;
@@ -597,7 +598,7 @@ export class BattleScene extends BaseScene {
 
         // if player failed to flee, only have enemy attack
         if (this.#battleMenu.isAttemptingToFlee) {
-          this.time.delayedCall(500, () => {
+          this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
             this.#enemyAttack(() => {
               this.#battleStateMachine.setState(BATTLE_STATES.POST_ATTACK_CHECK);
             });
@@ -607,7 +608,7 @@ export class BattleScene extends BaseScene {
 
         // if player switched active monster, only have enemy attack
         if (this.#switchingActiveMonster) {
-          this.time.delayedCall(500, () => {
+          this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
             this.#enemyAttack(() => {
               this.#switchingActiveMonster = false;
               this.#battleStateMachine.setState(BATTLE_STATES.POST_ATTACK_CHECK);
@@ -661,7 +662,7 @@ export class BattleScene extends BaseScene {
         if (randomNumber > 5) {
           // player has run away successfully
           this.#showMessagesAndWaitForInput(['You got away safely!'], () => {
-            this.time.delayedCall(200, () => {
+            this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
               playSoundFx(this, AUDIO_ASSET_KEYS.FLEE);
               this.#battleStateMachine.setState(BATTLE_STATES.FINISHED);
             });
@@ -670,7 +671,7 @@ export class BattleScene extends BaseScene {
         }
         // player failed to run away, allow enemy to take their turn
         this.#showMessagesAndWaitForInput(['You failed to run away...'], () => {
-          this.time.delayedCall(200, () => {
+          this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
             this.#battleStateMachine.setState(BATTLE_STATES.ENEMY_INPUT);
           });
         });
@@ -743,7 +744,7 @@ export class BattleScene extends BaseScene {
         this._controls.lockInput = true;
         this.#activePlayerMonster.updateMonsterExpBar(didActiveMonsterLevelUp, false, () => {
           this.#showMessagesAndWaitForInput(messages, () => {
-            this.time.delayedCall(200, () => {
+            this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
               if (this.#monsterCaptured) {
                 this.#battleStateMachine.setState(BATTLE_STATES.CAUGHT_MONSTER);
                 return;
@@ -869,7 +870,7 @@ export class BattleScene extends BaseScene {
             dataManager.store.get(DATA_MANAGER_STORE_KEYS.MONSTERS_IN_PARTY)
           )[this.#activePlayerMonsterPartyIndex].currentHp
         );
-        this.time.delayedCall(500, () => {
+        this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
           this.#enemyAttack(() => {
             this.#battleStateMachine.setState(BATTLE_STATES.POST_ATTACK_CHECK);
           });
@@ -911,13 +912,13 @@ export class BattleScene extends BaseScene {
           return;
         }
 
-        await sleep(500, this);
+        await sleep(BATTLE_TIMING.QUICK_PAUSE_MS, this);
         this.#ball.hide();
         await this.#activeEnemyMonster.playCatchAnimationFailed();
 
         // TODO: refactor to use async/await
         this.#showMessagesAndWaitForInput(['The wild monster breaks free!'], () => {
-          this.time.delayedCall(500, () => {
+          this.time.delayedCall(BATTLE_TIMING.QUICK_PAUSE_MS, () => {
             this.#enemyAttack(() => {
               this.#battleStateMachine.setState(BATTLE_STATES.POST_ATTACK_CHECK);
             });

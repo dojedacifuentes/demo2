@@ -3,6 +3,7 @@ import { HealthBar } from '../../common/health-bar.js';
 import { BATTLE_ASSET_KEYS } from '../../assets/asset-keys.js';
 import { KENNEY_FUTURE_NARROW_FONT_NAME } from '../../assets/font-keys.js';
 import { DataUtils } from '../../utils/data-utils.js';
+import { BATTLE_TIMING } from '../../config.js';
 
 export class BattleMonster {
   /** @protected @type {Phaser.Scene} */
@@ -172,14 +173,14 @@ export class BattleMonster {
 
     this._scene.tweens.add({
       delay: 0,
-      duration: 150,
+      duration: BATTLE_TIMING.DAMAGE_FLASH_DURATION_MS,
       targets: this._phaserGameObject,
       alpha: {
         from: 1,
         start: 1,
         to: 0,
       },
-      repeat: 10,
+      repeat: BATTLE_TIMING.DAMAGE_FLASH_REPEAT,
       onComplete: () => {
         this._phaserGameObject.setAlpha(1);
         callback();
